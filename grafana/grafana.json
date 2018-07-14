@@ -1,0 +1,1870 @@
+{
+	"__inputs": [
+		{
+			"name": "DS_KIN",
+			"label": "kin",
+			"description": "",
+			"type": "datasource",
+			"pluginId": "mysql",
+			"pluginName": "MySQL"
+		}
+	],
+	"__requires": [
+		{
+			"type": "grafana",
+			"id": "grafana",
+			"name": "Grafana",
+			"version": "5.2.0"
+		},
+		{
+			"type": "panel",
+			"id": "graph",
+			"name": "Graph",
+			"version": "5.0.0"
+		},
+		{
+			"type": "datasource",
+			"id": "mysql",
+			"name": "MySQL",
+			"version": "5.0.0"
+		},
+		{
+			"type": "panel",
+			"id": "singlestat",
+			"name": "Singlestat",
+			"version": "5.0.0"
+		},
+		{
+			"type": "panel",
+			"id": "table",
+			"name": "Table",
+			"version": "5.0.0"
+		}
+	],
+	"annotations": {
+		"list": [
+			{
+				"builtIn": 1,
+				"datasource": "-- Grafana --",
+				"enable": true,
+				"hide": true,
+				"iconColor": "rgba(0, 211, 255, 1)",
+				"name": "Annotations & Alerts",
+				"type": "dashboard"
+			}
+		]
+	},
+	"description": "Growth of the Kin ecosystem based on users and transactions",
+	"editable": true,
+	"gnetId": null,
+	"graphTooltip": 0,
+	"id": null,
+	"links": [],
+	"panels": [
+		{
+			"cacheTimeout": null,
+			"colorBackground": false,
+			"colorValue": false,
+			"colors": [
+				"#5195ce",
+				"#1f78c1",
+				"#0a437c"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Total number of accounts on the Kin blockchain",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 100000,
+				"minValue": 0,
+				"show": true,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 8,
+				"w": 8,
+				"x": 0,
+				"y": 0
+			},
+			"id": 2,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "quantity",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT \n        SUM(`create_account`.`quantity`) AS `quantity`\n    FROM\n        `create_account`",
+					"refId": "A"
+				}
+			],
+			"thresholds": "30000,60000",
+			"title": "Total Users",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "150%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": false,
+			"colorValue": false,
+			"colors": [
+				"#e5a8e2",
+				"#0a50a1",
+				"#aea2e0"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "New users on the Kin blockchain",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 100,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 8,
+				"w": 16,
+				"x": 8,
+				"y": 0
+			},
+			"id": 9,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "today",
+			"postfixFontSize": "50%",
+			"prefix": "+",
+			"prefixFontSize": "100%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": true,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": true
+			},
+			"tableColumn": "time",
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"hide": false,
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(year, day),\n                 SEC_TO_TIME(1 * 24 * 60 * 60))) as time,\n\n SUM(quantity) as new_users FROM kin.create_account GROUP BY day, year",
+					"refId": "A"
+				}
+			],
+			"thresholds": "",
+			"title": "New users",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "200%",
+			"valueMaps": [],
+			"valueName": "current"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": false,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#629e51"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Total number of daily active accounts on the Kin blockchain. As a reference - STEEM has 60,000 daily active users. Filling this bar means Kin's activity has matched STEEMs\n\n\nAn active account has either made or received a transaction. (provided or payed for a service - both are active)",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 60000,
+				"minValue": 0,
+				"show": true,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 8,
+				"w": 8,
+				"x": 0,
+				"y": 8
+			},
+			"id": 14,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "quantity",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT \n        COUNT(`user_activity`.`account_id`) AS `quantity`\n    FROM\n        `user_activity` WHERE last_active >= DATE_SUB(NOW(), INTERVAL 1 DAY)",
+					"refId": "A"
+				}
+			],
+			"thresholds": "10000,30000",
+			"title": "Active users 24 hours",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "150%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": false,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#629e51"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Price in USD per KIN according to coinmarketcap. Updated each minute",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 0.01,
+				"minValue": 0,
+				"show": true,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 4,
+				"w": 4,
+				"x": 8,
+				"y": 8
+			},
+			"id": 15,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "$",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "ROUND(data,5)",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,5) FROM \n       kin.key_value WHERE id = 'KIN_price'",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.001,0.005",
+			"title": "KIN/ USD",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"columns": [],
+			"datasource": "${DS_KIN}",
+			"description": "NV = k . n . log(n)\n\nNV = value (price)\nk = proportionality constant\nn = number of nodes\n\nNote 1: k is calculated dynamically from only two data points for now.\n\nNote 2: this is not a price predictor, but simply an experiment to see how closely Kin follows Metacalf's law",
+			"fontSize": "100%",
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 8
+			},
+			"id": 32,
+			"links": [],
+			"pageSize": null,
+			"scroll": true,
+			"showHeader": true,
+			"sort": {
+				"col": 0,
+				"desc": false
+			},
+			"styles": [
+				{
+					"alias": "Time",
+					"dateFormat": "YYYY-MM-DD HH:mm:ss",
+					"pattern": "Time",
+					"type": "date"
+				},
+				{
+					"alias": "",
+					"colorMode": null,
+					"colors": [
+						"rgba(245, 54, 54, 0.9)",
+						"rgba(237, 129, 40, 0.89)",
+						"rgba(50, 172, 45, 0.97)"
+					],
+					"decimals": 2,
+					"pattern": "/.*/",
+					"thresholds": [],
+					"type": "number",
+					"unit": "short"
+				}
+			],
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT daily_active_users, price as 'projected price' from metacalf order by daily_active_users asc",
+					"refId": "A"
+				}
+			],
+			"title": "Metacalf's law projections - beta",
+			"transform": "table",
+			"type": "table"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": false,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#629e51"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Approaches 1 as Kin marketcap rises",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 1,
+				"minValue": 0,
+				"show": true,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 4,
+				"w": 4,
+				"x": 8,
+				"y": 12
+			},
+			"id": 24,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "flip",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ((SELECT data FROM kin.key_value WHERE id = 'KIN_marketcap')/\n(SELECT data FROM kin.key_value WHERE id = 'BTC_marketcap')) as flip\n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.2,0.5",
+			"title": "KIN/ BTC marketcap",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#0a437c"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 1,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 4,
+				"x": 0,
+				"y": 16
+			},
+			"id": 27,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,0) as score FROM kin.key_value WHERE id = 'KIN_marketcap_rank' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.1,0.5",
+			"title": "Marketcap Rank",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#0a437c"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "The traffic rank is based on three months of aggregated historical traffic data from millions of Alexa Toolbar users and data obtained from other, diverse traffic data sources, and is a combined measure of page views and users (reach)",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 1,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 5,
+				"x": 4,
+				"y": 16
+			},
+			"id": 16,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,0) as score FROM kin.key_value WHERE id = 'KIN_alexa_score' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.1,0.5",
+			"title": "Alexa Rank",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#0a437c"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 1,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 3,
+				"x": 9,
+				"y": 16
+			},
+			"id": 28,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,0) as score FROM kin.key_value WHERE id = 'KIN_reddit_subscribers' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.1,0.5",
+			"title": "Reddit Subscribers",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#58140c",
+				"#cca300",
+				"#0a437c"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 1,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 4,
+				"x": 12,
+				"y": 16
+			},
+			"id": 29,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,0) as score FROM kin.key_value WHERE id = 'KIN_twitter_followers' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "0.1,0.5",
+			"title": "Twitter Followers",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#f2c96d",
+				"#0a437c",
+				"#0a50a1"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Cryptocurrencies tend to experience tremendous growth when there is a strong community backing it. \nA strong community contributes to new ideas and new features to be incorporated into the coin, \nincreases trading volume, and signifies growth towards a bigger market. (eg. Reddit, Facebook, etc.)",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 100,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 4,
+				"x": 16,
+				"y": 16
+			},
+			"id": 25,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "%",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,1) as score FROM kin.key_value WHERE id = 'KIN_community_score' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "30,70",
+			"title": "Community Score",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"cacheTimeout": null,
+			"colorBackground": true,
+			"colorValue": false,
+			"colors": [
+				"#f2c96d",
+				"#0a437c",
+				"#0a50a1"
+			],
+			"datasource": "${DS_KIN}",
+			"decimals": null,
+			"description": "Search engine total results and web popularity can be used to measure mainstream interest and popularity of a coin.",
+			"format": "locale",
+			"gauge": {
+				"maxValue": 100,
+				"minValue": 0,
+				"show": false,
+				"thresholdLabels": false,
+				"thresholdMarkers": true
+			},
+			"gridPos": {
+				"h": 2,
+				"w": 4,
+				"x": 20,
+				"y": 16
+			},
+			"id": 26,
+			"interval": null,
+			"links": [],
+			"mappingType": 1,
+			"mappingTypes": [
+				{
+					"name": "value to text",
+					"value": 1
+				},
+				{
+					"name": "range to text",
+					"value": 2
+				}
+			],
+			"maxDataPoints": 100,
+			"nullPointMode": "connected",
+			"nullText": null,
+			"postfix": "%",
+			"postfixFontSize": "50%",
+			"prefix": "",
+			"prefixFontSize": "50%",
+			"rangeMaps": [
+				{
+					"from": "null",
+					"text": "N/A",
+					"to": "null"
+				}
+			],
+			"sparkline": {
+				"fillColor": "rgba(31, 118, 189, 0.18)",
+				"full": false,
+				"lineColor": "rgb(31, 120, 193)",
+				"show": false
+			},
+			"tableColumn": "score",
+			"targets": [
+				{
+					"alias": "",
+					"format": "table",
+					"rawSql": "SELECT ROUND(data,0) as score FROM kin.key_value WHERE id = 'KIN_public_interest_score' \n       ",
+					"refId": "A"
+				}
+			],
+			"thresholds": "30,70",
+			"title": "Public Interest Score",
+			"transparent": true,
+			"type": "singlestat",
+			"valueFontSize": "80%",
+			"valueMaps": [
+				{
+					"op": "=",
+					"text": "N/A",
+					"value": "null"
+				}
+			],
+			"valueName": "avg"
+		},
+		{
+			"aliasColors": {
+				"active_users": "#806eb7"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Hourly active users",
+			"fill": 1,
+			"gridPos": {
+				"h": 9,
+				"w": 24,
+				"x": 0,
+				"y": 18
+			},
+			"id": 23,
+			"legend": {
+				"alignAsTable": true,
+				"avg": true,
+				"current": true,
+				"max": true,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT  time_period as time,\nquantity as active_users FROM kin.hourly_active_users",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Hourly active users",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"accounts_created_per_hour": "#d683ce",
+				"accounts_created_per_minute": "#d683ce",
+				"new_user": "#d683ce"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Accounts created per minute",
+			"fill": 1,
+			"gridPos": {
+				"h": 9,
+				"w": 24,
+				"x": 0,
+				"y": 27
+			},
+			"id": 21,
+			"legend": {
+				"alignAsTable": true,
+				"avg": true,
+				"current": true,
+				"max": true,
+				"min": true,
+				"rightSide": false,
+				"show": true,
+				"total": false,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT UNIX_TIMESTAMP(TIMESTAMP(MAKEDATE(year, day),SEC_TO_TIME(hour * 60 * 60))) as time, \nquantity/60 as accounts_created_per_minute \nFROM kin.create_account",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Accounts created per minute",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "New users created per hour",
+			"fill": 1,
+			"gridPos": {
+				"h": 10,
+				"w": 24,
+				"x": 0,
+				"y": 36
+			},
+			"id": 11,
+			"legend": {
+				"alignAsTable": true,
+				"avg": true,
+				"current": true,
+				"max": true,
+				"min": false,
+				"show": true,
+				"total": true,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT UNIX_TIMESTAMP(TIMESTAMP(MAKEDATE(year, day),SEC_TO_TIME(hour * 60 * 60))) as time, quantity as new_user FROM kin.create_account",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "New users created",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Total user accounts created",
+			"fill": 1,
+			"gridPos": {
+				"h": 9,
+				"w": 24,
+				"x": 0,
+				"y": 46
+			},
+			"id": 30,
+			"legend": {
+				"alignAsTable": true,
+				"avg": false,
+				"current": false,
+				"hideEmpty": false,
+				"hideZero": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT UNIX_TIMESTAMP(TIMESTAMP(MAKEDATE(year, day),SEC_TO_TIME(hour * 60 * 60))) as time, cumulative_quantity as total_users FROM kin.create_account",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Total users",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"transactions": "#64b0c8"
+			},
+			"bars": true,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Number of transactions per hour",
+			"fill": 1,
+			"gridPos": {
+				"h": 9,
+				"w": 24,
+				"x": 0,
+				"y": 55
+			},
+			"id": 6,
+			"legend": {
+				"alignAsTable": false,
+				"avg": true,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": true
+			},
+			"lines": false,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(year, day),\n                 SEC_TO_TIME(hour * 60 * 60))) as time,\n\nquantity as transactions FROM kin.payment",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Number of Earn/Spend transactions",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"total_transactions": "#64b0c8"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Total Earn/Spend transactions",
+			"fill": 1,
+			"gridPos": {
+				"h": 10,
+				"w": 24,
+				"x": 0,
+				"y": 64
+			},
+			"id": 19,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [
+				{
+					"alias": "total_transactions",
+					"yaxis": 1
+				}
+			],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(year, day),\n                 SEC_TO_TIME(hour * 60 * 60))) as time,\n\ncumulative_quantity as total_transactions FROM kin.payment",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Total Earn/Spend transactions",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"volume": "#e5ac0e"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Total daily volume of Kin transacted by users per hour",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 24,
+				"x": 0,
+				"y": 74
+			},
+			"id": 8,
+			"legend": {
+				"alignAsTable": false,
+				"avg": true,
+				"current": false,
+				"hideEmpty": false,
+				"hideZero": false,
+				"max": false,
+				"min": false,
+				"rightSide": false,
+				"show": true,
+				"total": false,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(year, day),\n                 SEC_TO_TIME(hour * 60 * 60))) as time,\n\nvolume as volume FROM kin.payment",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Volume of Earn/Spend transactions",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"transactions": "#64b0c8"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 24,
+				"x": 0,
+				"y": 82
+			},
+			"id": 12,
+			"legend": {
+				"alignAsTable": false,
+				"avg": true,
+				"current": true,
+				"max": true,
+				"min": false,
+				"show": false,
+				"total": false,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"hide": false,
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(year, day),\n                 SEC_TO_TIME(hour * 60 * 60))) as time,\n\n quantity/86400 as tps FROM kin.payment",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Earn/ Spend transactions per second",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {
+				"transactions": "#64b0c8"
+			},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "${DS_KIN}",
+			"description": "Total transactions divided by total users to date",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 24,
+				"x": 0,
+				"y": 90
+			},
+			"id": 13,
+			"legend": {
+				"alignAsTable": true,
+				"avg": true,
+				"current": true,
+				"max": true,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": true
+			},
+			"lines": true,
+			"linewidth": 2,
+			"links": [],
+			"nullPointMode": "null",
+			"percentage": false,
+			"pointradius": 5,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "",
+					"format": "time_series",
+					"hide": false,
+					"rawSql": "SELECT\nUNIX_TIMESTAMP(TIMESTAMP(\n                 MAKEDATE(p.year, p.day),\n                 CONCAT(p.hour,\":00:00\"))) as time,\n\n (p.cumulative_quantity)/(SELECT (ca.cumulative_quantity) FROM create_account ca WHERE ca.year = p.year AND ca.day = p.day AND ca.hour = p.hour) as atpu FROM kin.payment p ",
+					"refId": "A"
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeShift": null,
+			"title": "Average transactions per user",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": false
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		}
+	],
+	"refresh": "5m",
+	"schemaVersion": 16,
+	"style": "dark",
+	"tags": [],
+	"templating": {
+		"list": []
+	},
+	"time": {
+		"from": "2018-06-25T00:00:00.000Z",
+		"to": "now"
+	},
+	"timepicker": {
+		"hidden": false,
+		"refresh_intervals": [
+			"5s",
+			"10s",
+			"30s",
+			"1m",
+			"5m",
+			"15m",
+			"30m",
+			"1h",
+			"2h",
+			"1d"
+		],
+		"time_options": [
+			"5m",
+			"15m",
+			"1h",
+			"6h",
+			"12h",
+			"24h",
+			"2d",
+			"7d",
+			"30d"
+		]
+	},
+	"timezone": "browser",
+	"title": "Kin Statistics",
+	"uid": "Wv3AjfDik",
+	"version": 113
+}

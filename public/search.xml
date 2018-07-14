@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Kin Explorer</ShortName>
+  <Description>Ledger explorer for the Kin Network</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/png">https://kinexplorer.com/favicon.ico</Image>
+  <Url type="text/html" method="get" template="https://kinexplorer.com/search/{searchTerms}" />
+  <Url
+    type="application/opensearchdescription+xml"
+    rel="self"
+    template="/search.xml"
+  />
+</OpenSearchDescription>
