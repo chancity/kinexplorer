@@ -1,7 +1,5 @@
 # Kin Explorer
 
-[![Build Status](https://travis-ci.org/chatch/stellarexplorer.svg?branch=master)](https://travis-ci.org/chatch/stellarexplorer)
-
 A ledger explorer for [Kin](https://kinecosystem.org).
 
 Public: https://kinexplorer.com
