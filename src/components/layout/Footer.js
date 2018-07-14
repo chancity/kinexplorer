@@ -24,11 +24,6 @@ class Footer extends React.PureComponent {
 						</a>
 					</Col>
 				</Row>
-				<Row>
-					<Col mdOffset={10} md={2}>
-						Donate Kin: 0x238abf40a57e5be57b61f0ab1cdee802fcaab15
-					</Col>
-				</Row>
 			</Grid>
 		)
 	}
