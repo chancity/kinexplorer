@@ -11,12 +11,6 @@ COPY . .
 
 RUN npm install
 
-RUN ls
-
-RUN rm node_modules/stellar-sdk/lib/call_builder.js
-RUN wget https://raw.githubusercontent.com/chancity/kinexplorer/master/call_builder.js
-RUN cp call_builder.js node_modules/stellar-sdk/lib/call_builder.js
-
 # Build for production.
 RUN npm run build
 
