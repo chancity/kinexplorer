@@ -4,7 +4,7 @@ import has from 'lodash/has'
 
 const serverAddresses = {
   public: 'https://horizon-kin-ecosystem.kininfrastructure.com/',
-  test: 'https://horizon-playground.kininfrastructure.com/',
+  test: 'https://stellar.kinplayground.com',
   local: 'https://horizon-playground.kininfrastructure.com/',
 }
 
