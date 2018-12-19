@@ -21,6 +21,15 @@
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
+    "cryptiles": ">=4.1.2",
+    "macaddress": ">=0.2.9",
+    "sshpk": ">=1.13.2",
+    "url-parse": ">=1.4.3",
+    "debug": ">=2.6.9",
+    "lodash": ">=4.17.5",
+    "merge": ">=1.2.1",
+    "randomatic": ">=3.0.0",
+    "deep-extend": ">=0.5.1",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -70,10 +79,12 @@
     "webpack": "3.5.1",
     "webpack-dev-server": "2.8.2",
     "webpack-manifest-plugin": "1.2.1",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "2.0.3",
+    "bootstrap": ">=4.1.2",
+    "mime": ">=1.4.1"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": ">=4.1.2",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
     "react-test-renderer": "^16.0.0"
