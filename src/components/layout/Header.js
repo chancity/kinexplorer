@@ -39,6 +39,11 @@ class Header extends React.Component {
 						/>
 					</Navbar.Form>
 					<Nav>
+						<LinkContainer to="/my_account">
+							<NavItem>
+								My Account
+							</NavItem>
+						</LinkContainer>
 						<LinkContainer to="/operations">
 							<NavItem>
 								<FormattedMessage id="operations" />

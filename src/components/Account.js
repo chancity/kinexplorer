@@ -30,6 +30,7 @@ import OperationTable from './OperationTable'
 import OfferTable from './OfferTable'
 import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
+import App from "../App";
 
 const stellarAddressFromURI = () => {
   if (!window || !window.location || !window.location.pathname) return
@@ -400,7 +401,6 @@ class AccountContainer extends React.Component {
     account: null,
     isLoading: true,
   }
-
   componentDidMount() {
     this.loadAccount(this.props.match.params.id)
   }
@@ -410,13 +410,16 @@ class AccountContainer extends React.Component {
   }
 
   loadAccount(accountId) {
-    if (isPublicKey(accountId)) this.loadAccountByKey(accountId)
+    if (isPublicKey(accountId))
+      this.loadAccountByKey(accountId)
     else if (isStellarAddress(accountId))
       this.loadAccountByStellarAddress(accountId)
-    else
-      handleFetchDataFailure(accountId)(
-        new Error(`Unrecognized account: ${accountId}`)
-      )
+    else{
+	    handleFetchDataFailure(accountId)(
+		    new Error(`Unrecognized account: ${accountId}`)
+	    )
+    }
+
   }
 
   loadAccountByStellarAddress(stellarAddr) {

@@ -30,6 +30,7 @@ import Ledgers from './components/Ledgers'
 import Transaction from './components/Transaction'
 import Transactions from './components/Transactions'
 import Statistics from './components/Statistics'
+import AccountMy from './components/AccountMy'
 import Account from './components/Account'
 import Accounts from './components/Accounts'
 import Anchor from './components/Anchor'
@@ -40,7 +41,7 @@ import Payments from './components/Payments'
 import Trades from './components/Trades'
 import Assets from './components/Assets'
 import Effects from './components/Effects'
-import InflationPools from './components/InflationPools'
+import QrcodeRestore from './components/QrcodeRestore'
 
 import {networks, Server} from './lib/stellar'
 import {hostnameToNetwork} from './lib/stellar/networks'
@@ -50,11 +51,13 @@ import {searchStrToPath} from './lib/search'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'react-json-pretty/src/JSONPretty.1337.css'
 import './App.css'
+import 'dropzone/dist/min/dropzone.min.css'
+import 'react-dropzone-component/styles/filepicker.css'
 
 const HOME_PUBLIC = 'https://kinexplorer.com'
 const HOME_TESTNET = 'https://testnet.kinexplorer.com'
 
-const storage = storageInit()
+const storage = storageInit();
 
 addLocaleData([...en, ...ru, ...vi, ...zh])
 
@@ -133,7 +136,9 @@ class App extends Component {
             <div id="main-content">
               <SponsoredLink />
               <Switch>
-                <Route exact path="/" component={Home} />
+	              <Route exact path="/" component={Home} />
+                <Route path="/my_account" component={AccountMy} />
+	              <Route path="/qrcode_restore" component={QrcodeRestore} />
                 <Route path="/accounts" component={Accounts} />
                 <Route path="/account/:id" component={Account} />
                 <Route path="/assets" component={Assets} />
@@ -150,7 +155,6 @@ class App extends Component {
                 <Route path="/txs" component={Transactions} />
                 <Route path="/tx/:id" component={Transaction} />
                 <Route path="/statistics" component={Statistics} />
-                <Route path="/pools" component={InflationPools} />
                 <Route
                   path="/search/:id"
                   render={({match}) => {
