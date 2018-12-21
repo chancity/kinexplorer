@@ -2,8 +2,18 @@ import React from "react";
 import QrCode from "qrcode-reader";
 import Dropzone from 'react-dropzone-component';
 import {injectIntl} from "react-intl";
+import {storageInit} from "../lib/utils";
+import { Redirect } from 'react-router-dom'
+
+const storage = storageInit()
 
 class QrcodeRestore extends React.Component {
+	renderRedirect = () => {
+		if (this.state.redirect) {
+			return <Redirect to='/my_account' />
+		}
+	}
+
 	constructor(props) {
 		super(props);
 		this.eventHandlers = {
@@ -12,6 +22,7 @@ class QrcodeRestore extends React.Component {
  				this.onImageDrop(file)
 			}
 		}
+
 		this.componentConfig = {
 			postUrl: 'no-url',
 			iconFiletypes: ['.jpg', '.png', '.gif'],
@@ -51,6 +62,7 @@ class QrcodeRestore extends React.Component {
 			// TODO handle error
 		}
 		else {
+			storage.setItem('accountKeyStore', value.result);
 			this.changeState(value.result);
 
 		}
@@ -58,7 +70,7 @@ class QrcodeRestore extends React.Component {
 	handleImageUpload(file) {
 		var qr = new QrCode();
 		qr.callback = this.qrCallback;
-		qr.changeState = this.props.qrCodeUploaded;
+		qr.changeState = this.props.qrCodeUploaded || this.setRedirect;
 		var reader = new FileReader();
 
 		reader.addEventListener('load', function() {
@@ -73,6 +85,7 @@ class QrcodeRestore extends React.Component {
 
 		return (
 			<form>
+				{this.renderRedirect()}
 				<div className="FileUpload">
 					<Dropzone
 						config={this.componentConfig}
@@ -89,6 +102,7 @@ class QrcodeRestore extends React.Component {
 						</div>}
 				</div>
 			</form>
+
 
 		)
 	}
