@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/stellarexplorer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stellarexplorer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/start.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/start.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AccountMy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AccountMy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QrcodeRestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QrcodeRestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/stellar/networks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stellar/networks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/stellar/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stellar/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QrcodeRestore.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QrcodeRestore.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="459">
+              <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -87,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="517">
@@ -227,11 +213,11 @@
         <option value="$PROJECT_DIR$/src/lib/stellar/networks.js" />
         <option value="$PROJECT_DIR$/src/components/Account.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/components/QrcodeRestore.js" />
         <option value="$PROJECT_DIR$/src/components/AccountMy.js" />
         <option value="$PROJECT_DIR$/src/lib/utils.js" />
         <option value="$PROJECT_DIR$/src/components/Input.js" />
         <option value="$PROJECT_DIR$/src/lib/stellar/server.js" />
+        <option value="$PROJECT_DIR$/src/components/QrcodeRestore.js" />
       </list>
     </option>
   </component>
@@ -334,9 +320,21 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.Development">
-    <configuration name="Attach debug" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9229" />
+    <configuration name="Attach debug" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9229">
+      <method v="2">
+        <option name="NpmBeforeRunTask" enabled="true">
+          <package-json value="$PROJECT_DIR$/package.json" />
+          <command value="run" />
+          <scripts>
+            <script value="start" />
+          </scripts>
+          <node-interpreter value="project" />
+          <envs />
+        </option>
+      </method>
+    </configuration>
     <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9229">
-      <method>
+      <method v="2">
         <option name="NpmBeforeRunTask" enabled="true">
           <package-json value="$PROJECT_DIR$/package.json" />
           <command value="run" />
@@ -353,26 +351,25 @@
         <settings>
           <option name="JSONFilePath" value="" />
           <option name="command" value="" />
-          <option name="commandLineOptions" value="" />
           <option name="containerName" value="" />
           <option name="entrypoint" value="" />
           <option name="imageTag" value="" />
+          <option name="commandLineOptions" value="" />
           <option name="sourceFilePath" value="Dockerfile" />
-          <option name="startBrowserSettings">
-            <browser url="http://127.0.0.1" />
-          </option>
         </settings>
       </deployment>
+      <method v="2" />
     </configuration>
-    <configuration name="Development" type="js.build_tools.npm" factoryName="npm">
+    <configuration name="Development" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
       <arguments value="%NODE_DEBUG_OPTION%" />
       <node-interpreter value="project" />
       <package-manager value="npm" />
       <envs />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+    <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -381,6 +378,7 @@
       <node-interpreter value="project" />
       <package-manager value="npm" />
       <envs />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Attach to Node.js/Chrome.Attach debug" />
@@ -410,7 +408,7 @@
       <workItem from="1545274269608" duration="23828000" />
       <workItem from="1545329060838" duration="7445000" />
       <workItem from="1545354064627" duration="110000" />
-      <workItem from="1545360923582" duration="20100000" />
+      <workItem from="1545360923582" duration="21358000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -573,17 +571,30 @@
       <option name="project" value="LOCAL" />
       <updated>1545211975948</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added send kin">
+      <created>1545381064041</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1545381064041</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fixed qr code outside of send">
+      <created>1545381678386</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1545381678386</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92340000" />
+    <option name="totallyTimeSpent" value="93598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17848837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17848837" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32972136" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -594,7 +605,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39815527" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39815527" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -622,7 +633,9 @@
     <MESSAGE value="updated readme" />
     <MESSAGE value="removed keybase file" />
     <MESSAGE value="added qr code reader" />
-    <option name="LAST_COMMIT_MESSAGE" value="added qr code reader" />
+    <MESSAGE value="added send kin" />
+    <MESSAGE value="fixed qr code outside of send" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed qr code outside of send" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -961,16 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/AccountMy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -1017,6 +1020,16 @@
           <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
