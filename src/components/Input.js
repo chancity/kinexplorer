@@ -11,6 +11,7 @@ import {withSpinner} from './shared/Spinner'
 import {sendPayment, storageInit} from "../lib/utils";
 
 import FetchPonyfill from 'fetch-ponyfill'
+import AccountLink from "./shared/AccountLink";
 const fetch = FetchPonyfill().fetch
 const storage = storageInit();
 
@@ -239,7 +240,7 @@ class ResourceModalContainer extends React.Component {
             return (
                 <Modal id="resourceModal" show={this.props.show} onHide={this.props.handleCloseFn}>
                     <Modal.Header closeButton>
-                        {!this.state.text ? <p>Send to {this.props.destinationId}</p> : <ClipboardCopyButton text={this.state.text} />}
+                        {!this.state.text ? <AccountLink account={this.props.destinationId}/> : <ClipboardCopyButton text={this.state.text} />}
                     </Modal.Header>
 
                     {this.state.accountJson !== null ? null : <QrcodeRestore qrCodeUploaded={this.qrCodeUploaded}/>}

@@ -86,9 +86,6 @@ const balanceRow = (bal) => (
       <span className="break">{bal.balance}</span>
     </td>
     <td>
-      <span className="break">{bal.limit}</span>
-    </td>
-    <td>
       <PaymentButton
           filterFn={null}
         label={"Send " + (bal.asset_code ? bal.asset_code : 'XLM')}
@@ -112,10 +109,6 @@ const Balances = props => (
           <FormattedMessage id="balance" />
         </th>
         <th>
-          <FormattedMessage id="limit" />
-        </th>
-        <th>
-            Send
         </th>
       </tr>
     </thead>

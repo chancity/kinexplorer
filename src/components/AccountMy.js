@@ -96,9 +96,6 @@ const balanceRow = bal => (
 		<td>
 			<span className="break">{bal.balance}</span>
 		</td>
-		<td>
-			<span className="break">{bal.limit}</span>
-		</td>
 	</tr>
 )
 
@@ -111,9 +108,6 @@ const Balances = props => (
 			</th>
 			<th>
 				<FormattedMessage id="balance"/>
-			</th>
-			<th>
-				<FormattedMessage id="limit"/>
 			</th>
 		</tr>
 		</thead>
