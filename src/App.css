@@ -48,8 +48,29 @@ table {
   padding-right: 15px;
 }
 
+.modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 50%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
 .modal-header,
 .modal-body {
+  background-color: #383f4b;
+}
+.modal-footer {
   background-color: #383f4b;
 }
 .modal-body > div {

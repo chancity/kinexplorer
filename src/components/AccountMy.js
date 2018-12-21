@@ -20,6 +20,7 @@ import {
 	handleFetchDataFailure,
 	isPublicKey,
 	isStellarAddress, storageInit,
+	keyHash
 } from '../lib/utils'
 import {withServer} from './shared/HOCs'
 import {withSpinner} from './shared/Spinner'
@@ -34,7 +35,7 @@ import OperationTable from './OperationTable'
 import OfferTable from './OfferTable'
 import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
-import {centralized} from "../data/exchanges";
+import BackendResourceBadgeButton from "./shared/BackendResourceBadgeButton";
 
 
 const storage = storageInit()
@@ -81,6 +82,7 @@ const NameValueTable = ({data, decodeValue = false}) => {
 		</Table>
 	)
 }
+
 
 const balanceRow = bal => (
 	<tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'XLM'}>
@@ -215,32 +217,6 @@ const AccountSummaryPanel = ({
 								<Col md={9}>{kinAddr}</Col>
 							</Row>
 						)}
-						<Row>
-							<Col md={3}>
-								<FormattedMessage id="home.domain"/>:
-							</Col>
-							<Col md={9}>
-								<a href={`https://${a.home_domain}`} target="_blank">
-									{a.home_domain}
-								</a>
-							</Col>
-						</Row>
-						<Row>
-							<Col md={3}>
-								<FormattedMessage id="inflation"/>:
-							</Col>
-							<Col md={9}>
-								{a.inflation_destination && (
-									<AccountLink account={a.inflation_destination}/>
-								)}
-							</Col>
-						</Row>
-						<Row>
-							<Col md={3}>
-								<FormattedMessage id="subentry.count"/>:
-							</Col>
-							<Col md={9}>{a.subentry_count}</Col>
-						</Row>
 					</Col>
 					{has(knownAccounts, a.id) &&
 					knownAccounts[a.id].type !== 'inflation_pools' && (

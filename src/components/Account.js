@@ -30,7 +30,8 @@ import OperationTable from './OperationTable'
 import OfferTable from './OfferTable'
 import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
-import App from "../App";
+import PaymentButton from './Input'
+
 
 const stellarAddressFromURI = () => {
   if (!window || !window.location || !window.location.pathname) return
@@ -38,6 +39,8 @@ const stellarAddressFromURI = () => {
   const lastPath = path.substring(path.lastIndexOf('/') + 1)
   return isStellarAddress(lastPath) ? lastPath : undefined
 }
+
+let accountInfo = null;
 
 const NameValueTable = ({data, decodeValue = false}) => {
   if (!data || Object.keys(data).length === 0)
@@ -70,7 +73,7 @@ const NameValueTable = ({data, decodeValue = false}) => {
   )
 }
 
-const balanceRow = bal => (
+const balanceRow = (bal) => (
   <tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'XLM'}>
     <td>
       <Asset
@@ -84,6 +87,16 @@ const balanceRow = bal => (
     </td>
     <td>
       <span className="break">{bal.limit}</span>
+    </td>
+    <td>
+      <PaymentButton
+          filterFn={null}
+        label={"Send " + (bal.asset_code ? bal.asset_code : 'XLM')}
+        url={'_blank'}
+          destinationId={accountInfo.id}
+          asset_code={bal.asset_code}
+          asset_issuer={bal.asset_issuer}
+      />
     </td>
   </tr>
 )
@@ -100,6 +113,9 @@ const Balances = props => (
         </th>
         <th>
           <FormattedMessage id="limit" />
+        </th>
+        <th>
+            Send
         </th>
       </tr>
     </thead>
@@ -176,6 +192,7 @@ const AccountSummaryPanel = ({
   formatMessageFn,
   knownAccounts,
 }) => {
+	accountInfo = a;
   const header = titleWithJSONButton(
     formatMessageFn({id: 'account'}),
     accountUrl
@@ -203,32 +220,6 @@ const AccountSummaryPanel = ({
                 <Col md={9}>{stellarAddr}</Col>
               </Row>
             )}
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="home.domain" />:
-              </Col>
-              <Col md={9}>
-                <a href={`https://${a.home_domain}`} target="_blank">
-                  {a.home_domain}
-                </a>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="inflation" />:
-              </Col>
-              <Col md={9}>
-                {a.inflation_destination && (
-                  <AccountLink account={a.inflation_destination} />
-                )}
-              </Col>
-            </Row>
-            <Row>
-              <Col md={3}>
-                <FormattedMessage id="subentry.count" />:
-              </Col>
-              <Col md={9}>{a.subentry_count}</Col>
-            </Row>
           </Col>
           {has(knownAccounts, a.id) &&
             knownAccounts[a.id].type !== 'inflation_pools' && (

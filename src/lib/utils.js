@@ -2,6 +2,15 @@ import {join} from 'path'
 import {tmpdir} from 'os'
 import truncate from 'lodash/truncate'
 import {sdk} from './stellar'
+import WarpedServer from './stellar/server'
+import * as StellarSdk from "stellar-sdk";
+const _sodium = require('libsodium-wrappers-sumo');
+let sodium;
+
+(async() => {
+	await _sodium.ready;
+	 sodium = _sodium;
+})();
 
 const STROOPS_PER_LUMEN = 10000000
 const stroopsToLumens = stroops => stroops / STROOPS_PER_LUMEN
@@ -64,6 +73,46 @@ const storageInit = () => {
   return storage
 }
 
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+const sendPayment = (amount, passphrase, destinationId, asset_issuer, asset_code) =>
+{
+	return sleep(200).then(() =>{
+		let storage = storageInit();
+		var accountJson = JSON.parse(storage.getItem('accountKeyStore')) || null;
+		let key = keyPairFromKeyStore(passphrase, accountJson.salt, accountJson.seed)
+		return key;
+	}).then(key => {
+		let server = new WarpedServer('public');
+		return server.SendTransaction(key,destinationId, asset_issuer, asset_code,amount);
+	});
+}
+const keyPairFromKeyStore =  (passPhrase,saltHex, seedHex) => {
+	let keyHashBytes = keyHash(passPhrase, saltHex);
+	let decryptedSeedBytes = decryptSecretSeed(seedHex, keyHashBytes);
+	let keyPair = StellarSdk.Keypair.fromRawEd25519Seed(decryptedSeedBytes)
+	return keyPair;
+}
+
+const decryptSecretSeed =  (seedHex, keyHashBytes) => {
+	let nonce_and_ciphertext = sodium.from_hex(seedHex);
+	if (nonce_and_ciphertext.length < sodium.crypto_secretbox_NONCEBYTES + sodium.crypto_secretbox_MACBYTES) {
+		throw "Short message";
+	}
+	let nonce = nonce_and_ciphertext.slice(0, sodium.crypto_secretbox_NONCEBYTES),ciphertext = nonce_and_ciphertext.slice(sodium.crypto_secretbox_NONCEBYTES);
+	let decryptedSeedBytes = sodium.crypto_secretbox_open_easy(ciphertext, nonce, keyHashBytes);
+	return decryptedSeedBytes.slice(0, 32);
+}
+
+const keyHash =  (passPhrase, saltHex) =>{
+	let saltBytes = sodium.from_hex(saltHex);
+	let passPhraseBytes = sodium.from_string(passPhrase);
+	var hash = sodium.crypto_pwhash(32,passPhraseBytes,saltBytes, 2, 67108864, 2);
+	return hash;
+}
+
+
 export {
   assetKeyToIssuer,
   base64Decode,
@@ -77,4 +126,5 @@ export {
   shortHash,
   storageInit,
   stroopsToLumens,
+  sendPayment
 }

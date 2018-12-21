@@ -24,6 +24,7 @@
     "qrcode-reader": "^1.0.4",
     "lodash": "^4.17.11",
     "libsodium": "^0.7.3",
+    "libsodium-wrappers-sumo": "^0.7.3",
     "autoprefixer": "7.1.2",
     "babel-core": "6.25.0",
     "babel-eslint": "7.2.3",
