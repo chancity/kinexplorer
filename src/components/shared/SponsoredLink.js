@@ -8,8 +8,7 @@ import isEmpty from 'lodash/isEmpty'
 
 const fetch = FetchPonyfill().fetch
 
-const SPONSOR_LINK_JSON =
-  'https://raw.githubusercontent.com/chatch/stellarexplorer/master/banner.json'
+const SPONSOR_LINK_JSON =  'https://raw.githubusercontent.com/chatch/stellarexplorer/master/banner.json'
 
 const SponsoredLink = ({message}) => (
   <Grid>

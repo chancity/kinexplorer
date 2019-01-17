@@ -109,6 +109,7 @@ const keyHash =  (passPhrase, saltHex) =>{
 	let saltBytes = sodium.from_hex(saltHex);
 	let passPhraseBytes = sodium.from_string(passPhrase);
 	var hash = sodium.crypto_pwhash(32,passPhraseBytes,saltBytes, 2, 67108864, 2);
+	let hmm = sodium.to_hex(hash)
 	return hash;
 }
 
