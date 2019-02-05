@@ -7,8 +7,8 @@ import * as StellarSdk from "stellar-sdk";
 const serverAddresses = {
     public: 'https://horizon-kin-ecosystem.kininfrastructure.com/',
     test: 'https://horizon-playground.kininfrastructure.com/',
-	kin3Test: 'https://horizon-testnet.kininfrastructure.com/',
-	kin3Public: 'https://horizon-ecosystem.kininfrastructure.com',
+    kin3Test: 'https://horizon-testnet.kininfrastructure.com/',
+    kin3Public: 'https://horizon.kinfederation.com',
     local: 'https://horizon-playground.kininfrastructure.com/',
 }
 
