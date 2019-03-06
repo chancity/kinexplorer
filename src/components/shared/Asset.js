@@ -4,7 +4,7 @@ import AccountLink from './AccountLink'
 
 const Asset = ({code, issuer, type}) => {
   const isLumens = type === 'native'
-  const propCode = isLumens ? 'XLM' : code
+  const propCode = isLumens ? 'KIN' : code
   return (
     <span>
       {propCode}{' '}
