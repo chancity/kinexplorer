@@ -21,11 +21,28 @@ class WrappedServer extends sdk.Server {
   constructor(network) {
     if (!has(networks, network)) throw new Error(`network ${network} unknown`)
 
-    if (network === networks.public) sdk.Network.usePublicNetwork()
-    else if (network === networks.test) sdk.Network.useTestNetwork()
+    if (network === networks.public) {
+    	sdk.Network.usePublicNetwork()
+	    StellarSdk.Network.use(new StellarSdk.Network('Public Global Kin Ecosystem Network ; June 2018'));
+    }
+    else if (network === networks.test)
+    {
+    	sdk.Network.useTestNetwork()
+	    StellarSdk.Network.use(new StellarSdk.Network('Kin Playground Network ; June 2018'));
+    }
+    else if (network === networks.kin3Public)
+    {
+	    sdk.Network.useTestNetwork()
+	    StellarSdk.Network.use(new StellarSdk.Network('Kin Mainnet ; December 2018'));
+    }
+    else if (network === networks.kin3Test)
+    {
+	    sdk.Network.useTestNetwork()
+	    StellarSdk.Network.use(new StellarSdk.Network('Kin Testnet ; December 2018'));
+    }
 
-	  StellarSdk.Network.use(new StellarSdk.Network('Public Global Kin Ecosystem Network ; June 2018'));
     // allowHttp: public/test use HTTPS; local can use HTTP
+	  network.local
     super(serverAddresses[network], {allowHttp: network === networks.local})
   }
 
