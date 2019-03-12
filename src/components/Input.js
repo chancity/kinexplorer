@@ -294,9 +294,6 @@ class BackendResourceBadgeButtonWithResourceModal extends React.Component {
     }
 
     render() {
-        if(!this.props.asset_code)
-            return null;
-
         return (
             <span>
         <BackendResourceBadgeButton

@@ -74,7 +74,7 @@ const NameValueTable = ({data, decodeValue = false}) => {
 }
 
 const balanceRow = (bal) => (
-  <tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'XLM'}>
+  <tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'KIN'}>
     <td>
       <Asset
         type={bal.asset_type}
@@ -88,7 +88,7 @@ const balanceRow = (bal) => (
     <td>
       <PaymentButton
           filterFn={null}
-        label={"Send " + (bal.asset_code ? bal.asset_code : 'XLM')}
+        label={"Send " + (bal.asset_code ? bal.asset_code : 'KIN')}
         url={'_blank'}
           destinationId={accountInfo.id}
           asset_code={bal.asset_code}
