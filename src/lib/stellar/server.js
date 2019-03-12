@@ -5,10 +5,8 @@ import * as StellarSdk from "stellar-sdk";
 
 
 const serverAddresses = {
-    public: 'https://horizon-kin-ecosystem.kininfrastructure.com/',
-    test: 'https://horizon-playground.kininfrastructure.com/',
-	kin3Test: 'https://horizon-testnet.kininfrastructure.com/',
-	kin3Public: 'https://horizon.kinfederation.com',
+    public: 'https://horizon.kinfederation.com',
+    test: 'https://horizon-testnet.kininfrastructure.com/',
     local: 'https://horizon.kinfederation.com',
 }
 
@@ -21,25 +19,16 @@ class WrappedServer extends sdk.Server {
   constructor(network) {
     if (!has(networks, network)) throw new Error(`network ${network} unknown`)
 
-    if (network === networks.public) {
-    	sdk.Network.usePublicNetwork()
-	    StellarSdk.Network.use(new StellarSdk.Network('Public Global Kin Ecosystem Network ; June 2018'));
-    }
-    else if (network === networks.test)
-    {
-    	sdk.Network.useTestNetwork()
-	    StellarSdk.Network.use(new StellarSdk.Network('Kin Playground Network ; June 2018'));
-    }
-    else if (network === networks.kin3Public)
-    {
-	    sdk.Network.useTestNetwork()
-	    StellarSdk.Network.use(new StellarSdk.Network('Kin Mainnet ; December 2018'));
-    }
-    else if (network === networks.kin3Test)
-    {
-	    sdk.Network.useTestNetwork()
-	    StellarSdk.Network.use(new StellarSdk.Network('Kin Testnet ; December 2018'));
-    }
+	  if (network === networks.public)
+	  {
+		  sdk.Network.usePublicNetwork()
+		  StellarSdk.Network.use(new StellarSdk.Network('Kin Mainnet ; December 2018'));
+	  }
+	  else if (network === networks.test)
+	  {
+		  sdk.Network.useTestNetwork()
+		  StellarSdk.Network.use(new StellarSdk.Network('Kin Testnet ; December 2018'));
+	  }
 
     // allowHttp: public/test use HTTPS; local can use HTTP
 	  network.local

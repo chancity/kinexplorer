@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="added kin3 endpoints">
+    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="Updated passphrases">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Account.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/Asset.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/Asset.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/stellar/networks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stellar/networks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/stellar/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stellar/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -33,10 +30,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/AccountMy.js">
+        <entry file="file://$PROJECT_DIR$/src/lib/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="99" column="1" selection-start-line="99" selection-start-column="1" selection-end-line="99" selection-end-column="1" />
+            <state relative-caret-position="357">
+              <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -44,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/lib/stellar/networks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="221">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -74,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/shared/Asset.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -95,8 +92,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="320">
+              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Transaction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -113,17 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -135,8 +130,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>crypto_pwhash</find>
-      <find>fromse</find>
       <find>crypto_secretbox_open_easy</find>
       <find>sequence</find>
       <find>ResourceModal</find>
@@ -165,6 +158,8 @@
       <find>KIN</find>
       <find>native</find>
       <find>NATIVE</find>
+      <find>stroops</find>
+      <find>st</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\chancey\WebstormProjects\stellarexplorer\node_modules\stellar-sdk</dir>
@@ -220,13 +215,14 @@
         <option value="$PROJECT_DIR$/src/components/QrcodeRestore.js" />
         <option value="$PROJECT_DIR$/src/components/AccountMy.js" />
         <option value="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" />
-        <option value="$PROJECT_DIR$/src/lib/stellar/networks.js" />
-        <option value="$PROJECT_DIR$/src/lib/utils.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/lib/stellar/server.js" />
         <option value="$PROJECT_DIR$/src/components/Input.js" />
         <option value="$PROJECT_DIR$/src/components/Account.js" />
         <option value="$PROJECT_DIR$/src/components/shared/Asset.js" />
+        <option value="$PROJECT_DIR$/src/components/Transaction.js" />
+        <option value="$PROJECT_DIR$/src/lib/utils.js" />
+        <option value="$PROJECT_DIR$/src/lib/stellar/server.js" />
+        <option value="$PROJECT_DIR$/src/lib/stellar/networks.js" />
       </list>
     </option>
   </component>
@@ -429,7 +425,7 @@
       <workItem from="1549152520378" duration="53000" />
       <workItem from="1549185972709" duration="250000" />
       <workItem from="1549187195817" duration="24000" />
-      <workItem from="1552428185380" duration="857000" />
+      <workItem from="1552428185380" duration="1883000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -634,11 +630,32 @@
       <option name="project" value="LOCAL" />
       <updated>1547781402135</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added kin3 endpoints">
+      <created>1552429080469</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1552429080470</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added kin3 endpoints">
+      <created>1552429208045</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1552429208045</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Updated passphrases">
+      <created>1552429623205</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1552429623205</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103879000" />
+    <option name="totallyTimeSpent" value="104905000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
@@ -658,7 +675,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" weight="0.32972136" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289777" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289166" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32972136" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -707,16 +724,10 @@
     <MESSAGE value="fixed error" />
     <MESSAGE value="removed redirects in error handling" />
     <MESSAGE value="added kin3 endpoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="added kin3 endpoints" />
+    <MESSAGE value="Updated passphrases" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated passphrases" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/libsodium-wrappers-sumo/dist/modules-sumo/libsodium-wrappers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret column="33951" selection-start-column="33925" selection-end-column="33951" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/global-types/node_modules/@types/stellar-sdk/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -1003,16 +1014,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="87" column="29" selection-start-line="87" selection-start-column="29" selection-end-line="87" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/stellar.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1055,27 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/stellar/sdk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/stellar/networks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Account.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1097,6 +1077,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Transaction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/stellar/sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/stellar/networks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
