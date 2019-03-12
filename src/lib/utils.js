@@ -85,7 +85,7 @@ const sendPayment = (amount, passphrase, destinationId, asset_issuer, asset_code
 		return key;
 	}).then(key => {
 		let server = new WarpedServer('public');
-		return server.SendTransaction(key,destinationId, asset_issuer, asset_code,amount);
+		return server.SendTransaction(key,destinationId, asset_issuer, asset_code,amount/100);
 	});
 }
 const keyPairFromKeyStore =  (passPhrase,saltHex, seedHex) => {
