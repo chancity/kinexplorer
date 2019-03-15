@@ -53,6 +53,7 @@ import 'react-json-pretty/src/JSONPretty.1337.css'
 import './App.css'
 import 'dropzone/dist/min/dropzone.min.css'
 import 'react-dropzone-component/styles/filepicker.css'
+import StyledQrCode from "./components/MyAccount";
 
 const HOME_PUBLIC = 'https://kinexplorer.com'
 const HOME_TESTNET = 'https://testnet.kinexplorer.com'
@@ -138,7 +139,7 @@ class App extends Component {
               <Switch>
 	              <Route exact path="/" component={Home} />
                 <Route path="/my_account" component={AccountMy} />
-	              <Route path="/qrcode_restore" component={QrcodeRestore} />
+	              <Route path="/qrcode_restore" component={StyledQrCode} />
                 <Route path="/accounts" component={Accounts} />
                 <Route path="/account/:id" component={Account} />
                 <Route path="/assets" component={Assets} />

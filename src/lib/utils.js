@@ -58,7 +58,7 @@ const handleFetchDataFailure = id => e => {
   } else {
     errorURI = `/error/general/${id}`
   }
-  //window.location.href = errorURI
+  window.location.href = errorURI
 }
 
 const storageInit = () => {
@@ -91,8 +91,44 @@ const sendPayment = (amount, passphrase, destinationId, asset_issuer, asset_code
 const keyPairFromKeyStore =  (passPhrase,saltHex, seedHex) => {
 	let keyHashBytes = keyHash(passPhrase, saltHex);
 	let decryptedSeedBytes = decryptSecretSeed(seedHex, keyHashBytes);
-	let keyPair = StellarSdk.Keypair.fromRawEd25519Seed(decryptedSeedBytes)
+	let keyPair = StellarSdk.Keypair.fromRawEd25519Seed(decryptedSeedBytes);
+	let secret = keyPair.secret();
+	let publick = keyPair.publicKey();
 	return keyPair;
+}
+
+const getNewKeyPair = (password) => {
+	let keyPair = StellarSdk.Keypair.random();
+	let secret = keyPair.secret();
+	let publick = keyPair.publicKey();
+	return encryptedKeyStore(keyPair, password);
+}
+const encryptedKeyStore  =  (keyPair, password) => {
+	let saltHex = sodium.to_hex(sodium.randombytes_buf(16));
+	let keyHashBytes = keyHash(password, saltHex);
+	let seedBytes = keyPair.rawSecretKey();
+	let encryptedSeedBytes = encryptSecretSeedBytes(seedBytes, keyHashBytes);
+	let pubkey = keyPair.publicKey();
+	let encryptedSeedHex = sodium.to_hex(encryptedSeedBytes);
+	return {
+		pkey: pubkey,
+		salt: saltHex,
+		seed: encryptedSeedHex
+	}
+}
+
+const encryptSecretSeedBytes  =  (seedBytes, keyHashBytes) => {
+	let nonce = sodium.randombytes_buf(sodium.crypto_secretbox_NONCEBYTES);
+	let encrypted = sodium.crypto_secretbox_easy(seedBytes, nonce, keyHashBytes);
+	return mergeTypedArraysUnsafe(nonce,encrypted);
+}
+
+const mergeTypedArraysUnsafe = (a, b) => {
+	var c = new a.constructor(a.length + b.length);
+	c.set(a);
+	c.set(b, a.length);
+
+	return c;
 }
 
 const decryptSecretSeed =  (seedHex, keyHashBytes) => {
@@ -127,5 +163,6 @@ export {
   shortHash,
   storageInit,
   stroopsToLumens,
-  sendPayment
+  sendPayment,
+  getNewKeyPair
 }
