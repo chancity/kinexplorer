@@ -14,11 +14,15 @@ const SPONSOR_LINK_JSON =  'https://raw.githubusercontent.com/chatch/stellarexpl
 const SponsoredLink = ({message, removeHandler}) => (
 
   <Grid>
-    <Row>
+    <div className="panel panel-default" style={{marginBottom:'20px', wordWrap: 'break-word'}}>
+    <div className="panel-body">
+
       <Col style={{marginBottom: 15, paddingLeft: 15, paddingRight:15}}>
-        Your public key: <span dangerouslySetInnerHTML={{__html: message}} /> <button onClick={removeHandler} className="btn-danger" style={{fontSize: '10px'}}>Remove </button>
+        <label>Your public key: <span dangerouslySetInnerHTML={{__html: message}}/></label> <br/> <button onClick={removeHandler} className="btn-danger" style={{fontSize: '10px', textAlign:'center'}}>Remove </button>
       </Col>
-    </Row>
+
+    </div>
+    </div>
   </Grid>
 )
 

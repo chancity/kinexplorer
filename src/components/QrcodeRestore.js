@@ -1,6 +1,6 @@
 import React from "react";
-import QrCode from "qrcode-reader";
-import QrCodeCreator from "qrcode";
+import QrcodeDecoder from 'qrcode-decoder';
+import QrCodeEncoder from "qrcode";
 import {injectIntl} from "react-intl";
 import {storageInit, getNewKeyPair} from "../lib/utils";
 import { Redirect } from 'react-router-dom'
@@ -89,47 +89,36 @@ class QrcodeRestore extends React.Component {
 		}
 	}
 	handleImageUpload(file) {
-		let qr = new QrCode();
-		qr.callback = this.qrCallback;
-		qr.changeState = this.props.qrCodeUploaded;
 		let reader = new FileReader();
-
+		let hmm = this.setImgAndEncryptedStore;
 		reader.addEventListener('load', function() {
-			qr.decode(this.result);
-			let myCanvas = document.getElementById('accountImg');
-			let ctx = myCanvas.getContext('2d');
-			let img = new Image;
-			img.onload = function(){
-				myCanvas.height = img.height;
-				myCanvas.width = img.width;
-				ctx.drawImage(img, 0, 0, img.width,    img.height,     // source rectangle
-					0, 0, img.width, img.height); // destination rectangle
-				myCanvas.style.display = 'inline'
-			};
-			img.src = this.result;
+			let qr = new QrcodeDecoder;
+			let result1 = this.result;
+			qr.decodeFromImage(this.result).then((res) => {
+				hmm(result1, res.data, false);
+			});
 		}.bind(reader), false);
 
 		reader.readAsDataURL(file);
 	}
-	setImg = (dataUrl) =>{
-		//var key = JSON.parse(storage.getItem('accountKeyStore'));
-		//this.setState({headerText: key.pkey});
+	setImgAndEncryptedStore = (dataUrl, json, saveBackup) => {
+		storage.setItem('accountKeyStore', json);
 		let myCanvas = document.getElementById('accountImg');
 		let ctx = myCanvas.getContext('2d');
 		let img = new Image;
-		img.onload = function(){
+		img.onload = function () {
 			myCanvas.height = img.height;
 			myCanvas.width = img.width;
-			ctx.drawImage(img, 0, 0, img.width,    img.height,     // source rectangle
+			ctx.drawImage(img, 0, 0, img.width, img.height,     // source rectangle
 				0, 0, img.width, img.height); // destination rectangle
 			myCanvas.style.display = 'inline'
-			myCanvas.toBlob(function(blob) {
-				saveAs(blob, "backup.png");
-			});
-
-		};
+			if (saveBackup) {
+				myCanvas.toBlob(function (blob) {
+					saveAs(blob, "backup_qr.png");
+				});
+			}
+		}
 		img.src = dataUrl;
-
 	}
 	createNewWallet = () => {
 		this.setState({
@@ -138,10 +127,9 @@ class QrcodeRestore extends React.Component {
 		});
 		let encryptedKp = getNewKeyPair(this.state.password);
 		let jsonValue = JSON.stringify(encryptedKp);
-		storage.setItem('accountKeyStore', jsonValue);
-		QrCodeCreator.toDataURL(jsonValue)
+		QrCodeEncoder.toDataURL(jsonValue)
 		.then(url => {
-			this.setImg(url);
+			this.setImgAndEncryptedStore(url, jsonValue, true);
 		})
 		.catch(err => {
 			console.error(err)
