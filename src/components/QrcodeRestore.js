@@ -105,10 +105,6 @@ class QrcodeRestore extends React.Component {
 				ctx.drawImage(img, 0, 0, img.width,    img.height,     // source rectangle
 					0, 0, img.width, img.height); // destination rectangle
 				myCanvas.style.display = 'inline'
-				myCanvas.toBlob(function(blob) {
-					saveAs(blob, "backup.png");
-				});
-
 			};
 			img.src = this.result;
 		}.bind(reader), false);

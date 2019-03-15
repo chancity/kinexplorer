@@ -4,15 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/QrcodeRestore.js" line="160" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="removed kin2 completely and enabled sending of kin on new blockchain test/prod">
-      <change afterPath="$PROJECT_DIR$/src/components/MyAccount.js" afterDir="false" />
+    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="added create wallet feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QrcodeRestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QrcodeRestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="111" column="14" lean-forward="true" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+            <state relative-caret-position="289">
+              <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -427,7 +420,7 @@
       <workItem from="1549185972709" duration="250000" />
       <workItem from="1549187195817" duration="24000" />
       <workItem from="1552428185380" duration="2206000" />
-      <workItem from="1552616692935" duration="23130000" />
+      <workItem from="1552616692935" duration="23790000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -660,11 +653,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552430149750</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added create wallet feature">
+      <created>1552639884781</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1552639884781</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128358000" />
+    <option name="totallyTimeSpent" value="129018000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="3456" height="1416" extended-state="6" />
@@ -677,7 +677,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22535211" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39750585" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39750585" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -735,7 +735,8 @@
     <MESSAGE value="added kin3 endpoints" />
     <MESSAGE value="Updated passphrases" />
     <MESSAGE value="removed kin2 completely and enabled sending of kin on new blockchain test/prod" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed kin2 completely and enabled sending of kin on new blockchain test/prod" />
+    <MESSAGE value="added create wallet feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="added create wallet feature" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.eslintrc">
@@ -1136,8 +1137,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="111" column="14" lean-forward="true" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+        <state relative-caret-position="289">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
