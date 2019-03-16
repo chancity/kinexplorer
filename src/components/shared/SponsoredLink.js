@@ -6,10 +6,30 @@ import FetchPonyfill from 'fetch-ponyfill'
 import has from 'lodash/has'
 import isEmpty from 'lodash/isEmpty'
 import {storageInit} from "../../lib/utils";
+//import Transport from "@ledgerhq/hw-transport-node-hid";
+import Transport from "@ledgerhq/hw-transport-u2f"; // for browser
+import Str from "@ledgerhq/hw-app-str";
+import StellarSdk from "stellar-sdk";
+import regeneratorRuntime from "regenerator-runtime";
+
 const storage = storageInit()
 const fetch = FetchPonyfill().fetch
 
 const SPONSOR_LINK_JSON =  'https://raw.githubusercontent.com/chatch/stellarexplorer/master/banner.json'
+
+const getStrAppVersion = async () => {
+  const transport = await Transport.create();
+  const str = new Str(transport);
+  const result = await str.getAppConfiguration();
+  return result.version;
+}
+
+const getStrPublicKey = async () => {
+  const transport = await Transport.create();
+  const str = new Str(transport);
+  const result = await str.getPublicKey("44'/148'/0'");
+  return result.publicKey;
+};
 
 const SponsoredLink = ({message, removeHandler}) => (
 
@@ -27,6 +47,7 @@ const SponsoredLink = ({message, removeHandler}) => (
 )
 
 class SponsoredLinkContainer extends React.Component {
+
   checkForKey = () =>{
     let key = JSON.parse(storage.getItem('accountKeyStore'));
     if(key){
@@ -38,7 +59,12 @@ class SponsoredLinkContainer extends React.Component {
   }
 
   removeHandler = () => {
-    storage.removeItem('accountKeyStore')
+    getStrAppVersion().then(v => console.log(v));
+    let publicKey;
+    getStrPublicKey().then(pk => {
+      console.log(pk);
+      publicKey = pk;
+    });
   }
   componentDidMount() {
       this.checkForKey();

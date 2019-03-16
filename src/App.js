@@ -41,7 +41,6 @@ import Payments from './components/Payments'
 import Trades from './components/Trades'
 import Assets from './components/Assets'
 import Effects from './components/Effects'
-import QrcodeRestore from './components/QrcodeRestore'
 
 import {networks, Server} from './lib/stellar'
 import {hostnameToNetwork} from './lib/stellar/networks'
