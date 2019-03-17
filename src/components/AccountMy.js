@@ -34,7 +34,6 @@ import OperationTable from './OperationTable'
 import OfferTable from './OfferTable'
 import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
-import currentRate from './shared/LumensRates'
 
 
 const storage = storageInit()
@@ -94,7 +93,7 @@ const balanceRow = bal => (
 			/>
 		</td>
 		<td>
-			<span className="break">{bal.balance} {rate && '($'+ bal.balance*rate +')'}</span>
+			<span className="break">{bal.balance} {rate && '($'+ (bal.balance*rate).toFixed(2) +')'}</span>
 		</td>
 	</tr>
 )

@@ -9,7 +9,7 @@ import Tabs from 'react-bootstrap/lib/Tabs'
 import {injectIntl, FormattedMessage} from 'react-intl'
 import {FederationServer, StrKey} from 'stellar-sdk'
 import has from 'lodash/has'
-
+import {storageInit} from '../lib/utils'
 import knownAccounts from '../data/known_accounts'
 import {
   base64Decode,
@@ -32,6 +32,7 @@ import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
 import PaymentButton from './Input'
 
+const storage = storageInit()
 
 const stellarAddressFromURI = () => {
   if (!window || !window.location || !window.location.pathname) return
@@ -72,6 +73,7 @@ const NameValueTable = ({data, decodeValue = false}) => {
     </Table>
   )
 }
+const rate = storage.getItem('currentRate') || null;
 
 const balanceRow = (bal) => (
   <tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'KIN'}>
@@ -83,7 +85,7 @@ const balanceRow = (bal) => (
       />
     </td>
     <td>
-      <span className="break">{bal.balance}</span>
+      <span className="break">{bal.balance} {rate && '($'+ (bal.balance*rate).toFixed(2) +')'}</span>
     </td>
     <td>
       <PaymentButton
