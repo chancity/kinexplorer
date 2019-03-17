@@ -10,7 +10,6 @@ import Tabs from 'react-bootstrap/lib/Tabs'
 import {injectIntl, FormattedMessage} from 'react-intl'
 import {FederationServer, StrKey} from 'stellar-sdk'
 import { Redirect } from 'react-router-dom'
-
 import has from 'lodash/has'
 
 
@@ -35,7 +34,7 @@ import OperationTable from './OperationTable'
 import OfferTable from './OfferTable'
 import PaymentTable from './PaymentTable'
 import TransactionTable from './TransactionTableContainer'
-import BackendResourceBadgeButton from "./shared/BackendResourceBadgeButton";
+import currentRate from './shared/LumensRates'
 
 
 const storage = storageInit()
@@ -83,6 +82,7 @@ const NameValueTable = ({data, decodeValue = false}) => {
 	)
 }
 
+const rate = storage.getItem('currentRate') || null;
 
 const balanceRow = bal => (
 	<tr key={bal.asset_code ? `${bal.asset_code}-${bal.asset_issuer}` : 'XLM'}>
@@ -94,7 +94,7 @@ const balanceRow = bal => (
 			/>
 		</td>
 		<td>
-			<span className="break">{bal.balance}</span>
+			<span className="break">{bal.balance} {rate && '($'+ bal.balance*rate +')'}</span>
 		</td>
 	</tr>
 )

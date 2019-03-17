@@ -6,7 +6,7 @@ import {storageInit, getNewKeyPair, getStrPublicKey, getStrAppVersion} from "../
 import { Redirect } from 'react-router-dom'
 import Button from "react-bootstrap/es/Button";
 import { saveAs } from 'file-saver';
-import {Spinner, withSpinner} from "./shared/Spinner";
+import {Spinner} from "./shared/Spinner";
 
 const storage = storageInit()
 

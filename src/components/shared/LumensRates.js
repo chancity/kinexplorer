@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import FetchPonyfill from 'fetch-ponyfill'
+import {storageInit} from '../../lib/utils';
 const fetch = FetchPonyfill().fetch
 
 const FEED_URL = 'https://api.coinmarketcap.com/v1/ticker/kin/'
 const UPDATE_INTERVAL = 5 * 60 * 1000
-
+const storage = storageInit()
 class LumensRatesContainer extends React.PureComponent {
 	componentDidMount() {
 		this.updatePrice()
@@ -28,6 +29,7 @@ class LumensRatesContainer extends React.PureComponent {
 				change: lumens.percent_change_24h,
 				usd: lumens.price_usd,
 			}
+			storage.setItem('currentRate', lumens.price_usd);
 			this.setState(newState)
 		})
 		.catch(err => {
