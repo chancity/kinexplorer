@@ -30,7 +30,6 @@ import Ledgers from './components/Ledgers'
 import Transaction from './components/Transaction'
 import Transactions from './components/Transactions'
 import Statistics from './components/Statistics'
-import AccountMy from './components/AccountMy'
 import Account from './components/Account'
 import Accounts from './components/Accounts'
 import Anchor from './components/Anchor'
@@ -132,12 +131,10 @@ class App extends Component {
               language={this.state.language}
               languageSwitcher={this.languageSwitcher}
             />
-            <SearchBox />
+            <SearchBox/>
             <div id="main-content">
-              <SponsoredLink />
               <Switch>
 	              <Route exact path="/" component={Home} />
-                <Route path="/my_account" component={AccountMy} />
 	              <Route path="/qrcode_restore" component={StyledQrCode} />
                 <Route path="/accounts" component={Accounts} />
                 <Route path="/account/:id" component={Account} />

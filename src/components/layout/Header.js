@@ -42,7 +42,7 @@ class Header extends React.Component {
 					<Navbar.Form pullRight>
 						<PaymentButton
 							filterFn={null}
-							label={"Donate to Kinexplorer"}
+							label={"Donate"}
 							url={'_blank'}
 							destinationId='GBM6GP3FDOU2T2XLFYVWBS4NJIOFBA7HEQ6BXIXCDDKZUFEZRYGU6TL5'
 							asset_code={null}
@@ -50,11 +50,6 @@ class Header extends React.Component {
 						/>
 					</Navbar.Form>
 					<Nav>
-						<LinkContainer to="/my_account">
-							<NavItem>
-								My Account
-							</NavItem>
-						</LinkContainer>
 						<LinkContainer to="/operations">
 							<NavItem>
 								<FormattedMessage id="operations" />

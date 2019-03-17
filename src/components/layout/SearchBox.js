@@ -8,6 +8,7 @@ import {injectIntl} from 'react-intl'
 
 import {searchStrToPath} from '../../lib/search'
 import {isSecretKey} from '../../lib/utils'
+import SponsoredLink from "../shared/SponsoredLink.js";
 
 const HelpModal = props => (
   <Modal id="help-modal" show={props.show} onHide={props.handleCloseFn}>
@@ -178,6 +179,7 @@ class SearchBox extends React.Component {
         {this.state.show && (
           <HelpModal handleCloseFn={this.handleClose} show={this.state.show} />
         )}
+        <SponsoredLink />
       </div>
     )
   }

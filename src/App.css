@@ -233,7 +233,7 @@ ul.navbar-nav .divider-vertical {
  * see this link for details about this css:
  *   https://stackoverflow.com/questions/18192082/bootstrap-3-navbar-collapse
  */
-@media (max-width: 1116px) {
+@media (max-width: 1132px) {
   .navbar-header {
     float: none;
   }

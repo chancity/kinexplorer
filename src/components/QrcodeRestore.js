@@ -13,28 +13,13 @@ const storage = storageInit()
 class QrcodeRestore extends React.Component {
 	renderRedirect = () => {
 		if (this.state.redirect) {
-			return <Redirect to='/my_account' />
+			return <Redirect to={'/account/' + this.state.ledgerAddress} />
 		}
 	}
 	state = {};
 
 	constructor(props) {
 		super(props);
-		this.eventHandlers = {
-			complete: (file) => {
-				console.log(file)
- 				this.onImageDrop(file)
-			}
-		}
-
-		this.componentConfig = {
-			postUrl: 'no-url',
-			iconFiletypes: ['.jpg', '.png', '.gif'],
-			showFiletypeIcon: true,
-		};
-
-
-		this.djsConfig = {autoProcessQueue: true}
 
 		this.state = {
 			uploadedFile: null,
@@ -69,18 +54,6 @@ class QrcodeRestore extends React.Component {
 		this.handleImageUpload(file);
 	}
 
-
-	qrCallback(err, value) {
-		if (err) {
-			console.error(err);
-			// TODO handle error
-		}
-		else {
-			storage.setItem('accountKeyStore', value.result);
-			if(this.changeState) this.changeState(value.result);
-
-		}
-	}
 	onChangeFile(event) {
 		event.stopPropagation();
 		event.preventDefault();
@@ -111,9 +84,13 @@ class QrcodeRestore extends React.Component {
 	}
 	setImgAndEncryptedStore = (dataUrl, json, saveBackup) => {
 		storage.setItem('accountKeyStore', json);
+		let keystore = JSON.parse(json);
 		let myCanvas = document.getElementById('accountImg');
 		let ctx = myCanvas.getContext('2d');
 		let img = new Image;
+		this.setState({
+			ledgerAddress:keystore.pkey
+		});
 		img.onload = function () {
 			myCanvas.height = img.height;
 			myCanvas.width = img.width;
@@ -200,7 +177,7 @@ class QrcodeRestore extends React.Component {
 		});
 	}
 	handleOk = () => {
-		if(this.state.ledgerAddress && this.state.ledgerAddress !== '')
+		if(this.state.ledgerVersion && this.state.ledgerVersion !== '')
 		{
 			var keyStore = {
 				pkey:this.state.ledgerAddress,
