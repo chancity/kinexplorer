@@ -4,14 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/QrcodeRestore.js" line="188" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="ledger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QrcodeRestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QrcodeRestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/stellar/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stellar/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/utils.js" afterDir="false" />
-    </list>
+    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="so slop but it works" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -370,7 +363,7 @@
       <workItem from="1552616692935" duration="23790000" />
       <workItem from="1552641361167" duration="48000" />
       <workItem from="1552664654269" duration="1899000" />
-      <workItem from="1552777494046" duration="9515000" />
+      <workItem from="1552777494046" duration="9924000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -631,15 +624,21 @@
       <option name="project" value="LOCAL" />
       <updated>1552779380313</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="so slop but it works">
+      <created>1552791068393</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1552791068393</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140480000" />
+    <option name="totallyTimeSpent" value="140889000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="2109" height="1407" extended-state="1" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="2109" height="1407" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29357797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -648,7 +647,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22527473" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39717427" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39717427" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -710,7 +709,8 @@
     <MESSAGE value="fixed auto download when importing backup..." />
     <MESSAGE value="fix importing app qrcodes" />
     <MESSAGE value="ledger" />
-    <option name="LAST_COMMIT_MESSAGE" value="ledger" />
+    <MESSAGE value="so slop but it works" />
+    <option name="LAST_COMMIT_MESSAGE" value="so slop but it works" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/operations/Operation.js">
