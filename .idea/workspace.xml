@@ -4,11 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/QrcodeRestore.js" line="188" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="fix html">
+    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="half ass balance to usd in account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AccountMy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AccountMy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QrcodeRestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QrcodeRestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/LumensRates.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/LumensRates.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,31 +24,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/shared/SponsoredLink.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node_modules/fetch-ponyfill/fetch-node.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="229">
+              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="15" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -54,11 +35,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/AccountMy.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="93" column="14" lean-forward="true" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
+            <state relative-caret-position="620">
+              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/shared/SponsoredLink.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="13" selection-start-line="13" selection-end-line="22" selection-end-column="1" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -67,9 +60,30 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/layout/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
+            <state relative-caret-position="1173">
               <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
             </state>
           </provider>
@@ -78,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Input.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4284">
-              <caret line="263" selection-start-line="263" selection-end-line="263" />
+            <state relative-caret-position="376">
+              <caret line="93" column="8" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -88,10 +102,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="122">
+              <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="560" column="17" selection-start-line="560" selection-start-column="17" selection-end-line="560" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/shared/LumensRates.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-113">
-              <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+            <state relative-caret-position="663">
+              <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -110,20 +142,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ResourceModalBody</find>
-      <find>limit</find>
-      <find>format</find>
-      <find>origin</find>
-      <find>Send</find>
-      <find>KIN</find>
-      <find>native</find>
-      <find>NATIVE</find>
-      <find>stroops</find>
       <find>st</find>
       <find>renderRedirect</find>
       <find>setRedirect</find>
       <find>onImageDrop</find>
-      <find>send</find>
       <find>randombytes_buf</find>
       <find>to_hex</find>
       <find>from_string</find>
@@ -140,6 +162,16 @@
       <find>coinmar</find>
       <find>bal</find>
       <find>storage</find>
+      <find>Couldn't find</find>
+      <find>bal.b</find>
+      <find>error.cant.find</find>
+      <find>KIN/USD</find>
+      <find>balance</find>
+      <find>send</find>
+      <find>paymen</find>
+      <find>padding:'0.8rem 1.2rem'</find>
+      <find>style={{padding:'0.8rem 1.2rem', display:'inline-block'}}</find>
+      <find>network</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\chancey\WebstormProjects\stellarexplorer\node_modules\stellar-sdk</dir>
@@ -186,11 +218,7 @@
         <option value="$PROJECT_DIR$/src/components/Statistics.js" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/src/components/layout/LanguageSelector.js" />
-        <option value="$PROJECT_DIR$/src/components/layout/Header.js" />
-        <option value="$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js" />
         <option value="$PROJECT_DIR$/src/components/OperationTable.js" />
-        <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/components/Account.js" />
         <option value="$PROJECT_DIR$/src/components/shared/Asset.js" />
         <option value="$PROJECT_DIR$/src/components/Transaction.js" />
         <option value="$PROJECT_DIR$/src/lib/stellar/networks.js" />
@@ -198,14 +226,18 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/config/webpack.config.prod.js" />
         <option value="$PROJECT_DIR$/config/polyfills.js" />
-        <option value="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" />
         <option value="$PROJECT_DIR$/src/lib/stellar/server.js" />
         <option value="$PROJECT_DIR$/src/lib/utils.js" />
-        <option value="$PROJECT_DIR$/src/components/Input.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/QrcodeRestore.js" />
-        <option value="$PROJECT_DIR$/src/components/shared/LumensRates.js" />
+        <option value="$PROJECT_DIR$/src/components/Account.js" />
         <option value="$PROJECT_DIR$/src/components/AccountMy.js" />
+        <option value="$PROJECT_DIR$/src/components/shared/LumensRates.js" />
+        <option value="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" />
+        <option value="$PROJECT_DIR$/src/components/Input.js" />
+        <option value="$PROJECT_DIR$/src/components/layout/Header.js" />
+        <option value="$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
       </list>
     </option>
   </component>
@@ -248,7 +280,28 @@
               <item name="kinexplorer" type="b2602c69:ProjectViewProjectNode" />
               <item name="kinexplorer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kinexplorer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kinexplorer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kinexplorer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kinexplorer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kinexplorer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kinexplorer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="stellar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -402,7 +455,10 @@
       <workItem from="1552641361167" duration="48000" />
       <workItem from="1552664654269" duration="1899000" />
       <workItem from="1552777494046" duration="9924000" />
-      <workItem from="1552791913987" duration="1014000" />
+      <workItem from="1552791913987" duration="2116000" />
+      <workItem from="1552794473775" duration="374000" />
+      <workItem from="1552795202028" duration="15000" />
+      <workItem from="1552795449496" duration="2367000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -684,11 +740,25 @@
       <option name="project" value="LOCAL" />
       <updated>1552792137068</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="half ass balance to usd in my account">
+      <created>1552793016691</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1552793016691</updated>
+    </task>
+    <task id="LOCAL-00042" summary="half ass balance to usd in account">
+      <created>1552793244401</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1552793244401</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141903000" />
+    <option name="totallyTimeSpent" value="145761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="2109" height="1407" extended-state="0" />
@@ -765,30 +835,11 @@
     <MESSAGE value="ledger" />
     <MESSAGE value="so slop but it works" />
     <MESSAGE value="fix html" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix html" />
+    <MESSAGE value="half ass balance to usd in my account" />
+    <MESSAGE value="half ass balance to usd in account" />
+    <option name="LAST_COMMIT_MESSAGE" value="half ass balance to usd in account" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/shared/AccountLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="7" column="47" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Operations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/shared/JSONButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/shared/DataFetchingContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1065">
@@ -806,15 +857,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/shared/NewWindowIcon.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/shared/NoMatchError.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
@@ -883,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2771">
-          <caret line="173" selection-start-line="173" selection-end-line="178" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Trades.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -909,13 +944,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9860">
-          <caret line="580" selection-start-line="580" selection-end-line="580" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/lib/stellar.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -924,16 +952,6 @@
         <state>
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="137" column="44" selection-start-line="137" selection-start-column="44" selection-end-line="137" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -977,16 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="48854" selection-start-column="48833" selection-end-column="48854" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Accounts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1099,26 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/shared/SponsoredLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/fetch-ponyfill/fetch-node.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1126,10 +1114,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Input.js">
+    <entry file="file://$PROJECT_DIR$/src/languages/en.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4284">
-          <caret line="263" selection-start-line="263" selection-end-line="263" />
+        <state relative-caret-position="510">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AccountMy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="38" selection-start-line="38" selection-end-line="38" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/shared/Error.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/shared/NoMatchError.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Accounts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -1138,38 +1163,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
+        <state relative-caret-position="1173">
           <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/shared/LumensRates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="29" />
+        <state relative-caret-position="229">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="15" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/shared/LumensRates.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        <state relative-caret-position="376">
+          <caret line="93" column="8" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AccountMy.js">
+    <entry file="file://$PROJECT_DIR$/src/components/shared/SponsoredLink.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="93" column="14" lean-forward="true" selection-start-line="93" selection-start-column="14" selection-end-line="93" selection-end-column="14" />
+        <state relative-caret-position="119">
+          <caret line="13" selection-start-line="13" selection-end-line="22" selection-end-column="1" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/shared/BackendResourceBadgeButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="19" column="69" lean-forward="true" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/layout/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="560" column="17" selection-start-line="560" selection-start-column="17" selection-end-line="560" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -10,6 +10,7 @@ import NewWindowIcon from './shared/NewWindowIcon'
 import {withSpinner} from './shared/Spinner'
 import {sendPayment, storageInit} from "../lib/utils";
 import AccountLink from "./shared/AccountLink";
+import PaymentButton from "./layout/Header";
 const storage = storageInit();
 
 /**

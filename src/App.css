@@ -556,6 +556,20 @@ a:hover {
 .green-blue-button:hover {
   background-color: #01a8af !important;
 }
+.navbar-form .backend-resource-badge-button:hover {
+  background-color: #01a8af !important;
+  color: #3c4452;
+}
+.navbar-form .backend-resource-badge-button {
+  font-size: 14px;
+  background: #08b5e5;
+  border: 1px solid #08b5e5;
+  border-radius: 60px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+}
 
 .backend-resource-badge-button {
   border-radius: 60px;

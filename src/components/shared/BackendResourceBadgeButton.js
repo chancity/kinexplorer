@@ -24,6 +24,7 @@ const BackendResourceBadgeButton = ({handleClickFn, label, url}) => (
     onClick={handleClickFn}
   >
     {label}
+
   </a>
 )
 

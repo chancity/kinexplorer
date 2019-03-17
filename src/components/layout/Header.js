@@ -7,10 +7,11 @@ import MenuItem from 'react-bootstrap/lib/MenuItem'
 import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import {FormattedMessage, injectIntl} from 'react-intl'
-
+import PaymentButton from '../Input'
 import LanguageSelector from './LanguageSelector'
 import NetworkSelector from './NetworkSelector'
 import logoImg from '../../img/logo.png'
+
 
 class Header extends React.Component {
 	render() {
@@ -36,6 +37,16 @@ class Header extends React.Component {
 						<NetworkSelector
 							network={this.props.network}
 							switcher={this.props.networkSwitcher}
+						/>
+					</Navbar.Form>
+					<Navbar.Form pullRight>
+						<PaymentButton
+							filterFn={null}
+							label={"Donate to Kinexplorer"}
+							url={'_blank'}
+							destinationId='GBM6GP3FDOU2T2XLFYVWBS4NJIOFBA7HEQ6BXIXCDDKZUFEZRYGU6TL5'
+							asset_code={null}
+							asset_issuer={null}
 						/>
 					</Navbar.Form>
 					<Nav>
