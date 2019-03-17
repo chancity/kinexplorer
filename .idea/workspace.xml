@@ -4,16 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/components/QrcodeRestore.js" line="165" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="Added a dedicated donate button to header">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="8b582b04-c5ee-4a30-89fa-424f796f96fd" name="Default" comment="Cleaned up some thingggs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AccountMy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QrcodeRestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QrcodeRestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layout/SearchBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout/SearchBox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,25 +18,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="510">
+              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lib/stellar/server.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,6 +38,27 @@
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Account.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="91" column="25" lean-forward="true" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AccountTable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -93,6 +94,18 @@
               <caret line="136" column="59" selection-start-line="136" selection-start-column="59" selection-end-line="136" selection-end-column="59" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Accounts.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,11 +168,11 @@
       <find>paymen</find>
       <find>account</find>
       <find>@media</find>
-      <find>copy</find>
       <find>glyphicon-copy</find>
       <find>TooltipCopy</find>
       <find>my account</find>
       <find>ledgerAddress</find>
+      <find>copy</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\chancey\WebstormProjects\stellarexplorer\node_modules\stellar-sdk</dir>
@@ -215,7 +228,6 @@
         <option value="$PROJECT_DIR$/src/lib/stellar/server.js" />
         <option value="$PROJECT_DIR$/src/lib/utils.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/components/Account.js" />
         <option value="$PROJECT_DIR$/src/components/AccountMy.js" />
         <option value="$PROJECT_DIR$/src/components/shared/LumensRates.js" />
         <option value="$PROJECT_DIR$/src/components/Input.js" />
@@ -226,6 +238,7 @@
         <option value="$PROJECT_DIR$/src/components/layout/Header.js" />
         <option value="$PROJECT_DIR$/src/components/shared/SponsoredLink.js" />
         <option value="$PROJECT_DIR$/src/components/QrcodeRestore.js" />
+        <option value="$PROJECT_DIR$/src/components/Account.js" />
       </list>
     </option>
   </component>
@@ -439,7 +452,7 @@
       <workItem from="1552791913987" duration="2116000" />
       <workItem from="1552794473775" duration="374000" />
       <workItem from="1552795202028" duration="15000" />
-      <workItem from="1552795449496" duration="6610000" />
+      <workItem from="1552795449496" duration="7598000" />
     </task>
     <task id="LOCAL-00001" summary="Updated to kin">
       <created>1531506468983</created>
@@ -742,24 +755,31 @@
       <option name="project" value="LOCAL" />
       <updated>1552797867428</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Cleaned up some thingggs">
+      <created>1552802192641</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1552802192641</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150004000" />
+    <option name="totallyTimeSpent" value="150992000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="2109" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29357797" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29357797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32967034" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.22527473" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39717427" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39717427" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -800,7 +820,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added grafana export" />
     <MESSAGE value="added dockerfile" />
     <MESSAGE value="changed grafana url" />
     <MESSAGE value="fixed check for public net" />
@@ -825,7 +844,8 @@
     <MESSAGE value="half ass balance to usd in my account" />
     <MESSAGE value="half ass balance to usd in account" />
     <MESSAGE value="Added a dedicated donate button to header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a dedicated donate button to header" />
+    <MESSAGE value="Cleaned up some thingggs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up some thingggs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/shared/Paging.js">
@@ -942,13 +962,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="48854" selection-start-column="48833" selection-end-column="48854" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AccountTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="96" column="21" selection-start-line="96" selection-start-column="21" selection-end-line="96" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1081,16 +1094,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Accounts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/shared/LumensRates.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -1132,13 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="686">
           <caret line="69" column="34" selection-start-line="69" selection-start-column="34" selection-end-line="69" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="32" selection-start-line="32" selection-end-line="32" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1229,10 +1225,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QrcodeRestore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="510">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Accounts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AccountTable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="91" column="25" lean-forward="true" selection-start-line="91" selection-start-column="25" selection-end-line="91" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
