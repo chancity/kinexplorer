@@ -254,6 +254,8 @@ class QrcodeRestore extends React.Component {
 					<label>
 						Ledger Version: {this.state.ledgerVersion}
 					</label>
+					<br/>
+					<br/>
 					<label>
 						Public Key: {this.state.ledgerAddress}
 					</label>
