@@ -4,6 +4,8 @@ import truncate from 'lodash/truncate'
 import {sdk} from './stellar'
 import WarpedServer from './stellar/server'
 import * as StellarSdk from "stellar-sdk";
+import Transport from "@ledgerhq/hw-transport-u2f"; // for browser
+import Str from "@ledgerhq/hw-app-str";
 const _sodium = require('libsodium-wrappers-sumo');
 let sodium;
 
@@ -76,16 +78,35 @@ const storageInit = () => {
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
+const getStrPublicKey = async () => {
+	const transport = await Transport.create();
+	const str = new Str(transport);
+	const result = await str.getPublicKey("44'/2017'/0'");
+	return result.publicKey;
+};
+
+const getStrAppVersion = async () => {
+	const transport = await Transport.create();
+	const str = new Str(transport);
+	const result = await str.getAppConfiguration();
+	return result.version;
+}
+
 const sendPayment = (amount, passphrase, destinationId, asset_issuer, asset_code) =>
 {
-	return sleep(200).then(() =>{
-		let storage = storageInit();
-		var accountJson = JSON.parse(storage.getItem('accountKeyStore')) || null;
+	let storage = storageInit();
+	var accountJson = JSON.parse(storage.getItem('accountKeyStore')) || null;
+
+	return sleep(200).then(async () =>{
+		if(accountJson.useLedger){
+			let pkey = await getStrPublicKey();
+			return StellarSdk.Keypair.fromPublicKey(pkey);
+		}
 		let key = keyPairFromKeyStore(passphrase, accountJson.salt, accountJson.seed)
 		return key;
 	}).then(key => {
 		let server = new WarpedServer('public');
-		return server.SendTransaction(key,destinationId, asset_issuer, asset_code,amount/100);
+		return server.SendTransaction(key,destinationId, asset_issuer, asset_code,amount/100, accountJson.useLedger);
 	});
 }
 const keyPairFromKeyStore =  (passPhrase,saltHex, seedHex) => {
@@ -164,5 +185,7 @@ export {
   storageInit,
   stroopsToLumens,
   sendPayment,
-  getNewKeyPair
+  getNewKeyPair,
+	getStrPublicKey,
+	getStrAppVersion
 }

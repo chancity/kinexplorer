@@ -2,7 +2,8 @@ import sdk from './sdk'
 import networks from './networks'
 import has from 'lodash/has'
 import * as StellarSdk from "stellar-sdk";
-
+import Transport from "@ledgerhq/hw-transport-u2f"; // for browser
+import Str from "@ledgerhq/hw-app-str";
 
 const serverAddresses = {
     public: 'https://horizon.kinfederation.com',
@@ -37,7 +38,7 @@ class WrappedServer extends sdk.Server {
 
 
 
-	SendTransaction(sourceKey, destinationId, asset_issuer, asset_code, amount) {
+	SendTransaction(sourceKey, destinationId, asset_issuer, asset_code, amount, useLedger) {
   	    let thisServer = this;
 
 		return thisServer.loadAccount(destinationId)
@@ -45,7 +46,7 @@ class WrappedServer extends sdk.Server {
 		.then(function() {
 			return thisServer.loadAccount(sourceKey.publicKey());
 		})
-		.then(function(sourceAccount) {
+		.then(async function(sourceAccount) {
 			// Start building the transaction.
 			let transaction = new StellarSdk.TransactionBuilder(sourceAccount)
 			.addOperation(StellarSdk.Operation.payment({
@@ -59,9 +60,19 @@ class WrappedServer extends sdk.Server {
 			// optional and does not affect how Stellar treats the transaction.
 			.addMemo(StellarSdk.Memo.text('1-kin_explorer'))
 			.build();
+			if(useLedger){
+				const transport = await Transport.create();
+				const str = new Str(transport);
+				const result = await str.signTransaction("44'/2017'/0'", transaction.signatureBase());
+				const hint = sourceKey.signatureHint();
+				const decorated = new StellarSdk.xdr.DecoratedSignature({hint: hint, signature: result.signature});
+				transaction.signatures.push(decorated);
+			}
+			else {
+				// Sign the transaction to prove you are actually the person sending it.
+				transaction.sign(sourceKey);
+			}
 
-			// Sign the transaction to prove you are actually the person sending it.
-			transaction.sign(sourceKey);
 			// And finally, send it off to Stellar!
 			return thisServer.submitTransaction(transaction);
 		})

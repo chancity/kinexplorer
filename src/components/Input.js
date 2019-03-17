@@ -9,10 +9,7 @@ import QrcodeRestore from './QrcodeRestore'
 import NewWindowIcon from './shared/NewWindowIcon'
 import {withSpinner} from './shared/Spinner'
 import {sendPayment, storageInit} from "../lib/utils";
-
-import FetchPonyfill from 'fetch-ponyfill'
 import AccountLink from "./shared/AccountLink";
-const fetch = FetchPonyfill().fetch
 const storage = storageInit();
 
 /**
@@ -64,14 +61,14 @@ class Input extends React.Component {
                     type="number" />
             </div>
             <p/>
-	        <div id="password">
+	            {!this.props.useLedger && <div id="password">
 	            <label>Password:</label> <input
 		            style={widthStyle}
 		            value={password}
 		            name="password"
 		            onChange={this.handleChange}
 		            type="password" />
-            </div>
+            </div>}
 	            <br/>
 	            <p/>
 
@@ -243,7 +240,7 @@ class ResourceModalContainer extends React.Component {
                         {!this.state.text ? <AccountLink account={this.props.destinationId}/> : <ClipboardCopyButton text={this.state.text} />}
                     </Modal.Header>
 
-                    {this.state.accountJson !== null ? null : <QrcodeRestore qrCodeUploaded={this.qrCodeUploaded}/>}
+                    {this.state.accountJson === null && <QrcodeRestore qrCodeUploaded={this.qrCodeUploaded}/>}
                         {this.state.isSending || this.state.isError || this.state.text && this.state.accountJson ?  <Modal.Body>
                          <ResourceModalBodyWithSpinner
 	                         handleCloseFn={this.props.handleCloseFn}
@@ -254,8 +251,10 @@ class ResourceModalContainer extends React.Component {
 	                         url={this.state.url}
                          />
                     </Modal.Body> : null}
+
+	                {this.state.accountJson && this.state.accountJson.useLedger && this.state.isSending && <Modal.Footer style={{textAlign:'center'}}><label>Confirm the tx on your ledger...</label> </Modal.Footer>}
 	                {this.state.accountJson && (!this.state.isSending || this.state.isError) ? <Modal.Footer>
-	                    <Input{...this.props} handleSend={this.handleSend} />
+		                <Input{...this.props} handleSend={this.handleSend} useLedger={this.state.accountJson && this.state.accountJson.useLedger} />
                     </Modal.Footer> : null}
                 </Modal>
             )
