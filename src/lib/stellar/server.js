@@ -6,9 +6,9 @@ import Transport from "@ledgerhq/hw-transport-u2f"; // for browser
 import Str from "@ledgerhq/hw-app-str";
 
 const serverAddresses = {
-    public: 'https://horizon.kinfederation.com',
+    public: 'https://horizon-block-explorer.kininfrastructure.com',
     test: 'https://horizon-testnet.kininfrastructure.com/',
-    local: 'https://horizon.kinfederation.com',
+    local: 'https://horizon-block-explorer.kininfrastructure.com',
 }
 
 /**
@@ -37,10 +37,19 @@ class WrappedServer extends sdk.Server {
   }
 
 
+   arrayBufferToBase64 = ( buffer ) => {
+		var binary = '';
+		var bytes = new Uint8Array( buffer );
+		var len = bytes.byteLength;
+		for (var i = 0; i < len; i++) {
+			binary += String.fromCharCode( bytes[ i ] );
+		}
+		return window.btoa( binary );
+	};
 
 	SendTransaction(sourceKey, destinationId, asset_issuer, asset_code, amount, useLedger) {
   	    let thisServer = this;
-
+		let wtf = this.arrayBufferToBase64;
 		return thisServer.loadAccount(destinationId)
 		// If there was no error, load up-to-date information on your account.
 		.then(function() {
@@ -69,8 +78,10 @@ class WrappedServer extends sdk.Server {
 				transaction.signatures.push(decorated);
 			}
 			else {
+				console.log(wtf(transaction.toEnvelope().toXDR()))
 				// Sign the transaction to prove you are actually the person sending it.
 				transaction.sign(sourceKey);
+				console.log(wtf(transaction.toEnvelope().toXDR()))
 			}
 
 			// And finally, send it off to Stellar!
