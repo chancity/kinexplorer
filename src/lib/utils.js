@@ -121,8 +121,11 @@ const keyPairFromKeyStore =  (passPhrase,saltHex, seedHex) => {
 const getNewKeyPair = (password) => {
 	let keyPair = StellarSdk.Keypair.random();
 	let secret = keyPair.secret();
-	let publick = keyPair.publicKey();
-	return encryptedKeyStore(keyPair, password);
+	let publicKey = keyPair.publicKey();
+	return {
+		encrypted: encryptedKeyStore(keyPair, password),
+		decrypted: {pkey: publicKey, seed: secret}
+	};
 }
 const encryptedKeyStore  =  (keyPair, password) => {
 	let saltHex = sodium.to_hex(sodium.randombytes_buf(16));

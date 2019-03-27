@@ -32,7 +32,6 @@ class WrappedServer extends sdk.Server {
 	  }
 
     // allowHttp: public/test use HTTPS; local can use HTTP
-	  network.local
     super(serverAddresses[network], {allowHttp: network === networks.local})
   }
 
@@ -49,7 +48,6 @@ class WrappedServer extends sdk.Server {
 
 	SendTransaction(sourceKey, destinationId, asset_issuer, asset_code, amount, useLedger) {
   	    let thisServer = this;
-		let wtf = this.arrayBufferToBase64;
 		return thisServer.loadAccount(destinationId)
 		// If there was no error, load up-to-date information on your account.
 		.then(function() {
@@ -78,10 +76,8 @@ class WrappedServer extends sdk.Server {
 				transaction.signatures.push(decorated);
 			}
 			else {
-				console.log(wtf(transaction.toEnvelope().toXDR()))
 				// Sign the transaction to prove you are actually the person sending it.
 				transaction.sign(sourceKey);
-				console.log(wtf(transaction.toEnvelope().toXDR()))
 			}
 
 			// And finally, send it off to Stellar!

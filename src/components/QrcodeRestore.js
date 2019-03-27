@@ -7,6 +7,9 @@ import { Redirect } from 'react-router-dom'
 import Button from "react-bootstrap/es/Button";
 import { saveAs } from 'file-saver';
 import {Spinner} from "./shared/Spinner";
+import JSONPretty from 'react-json-pretty'
+import FetchPonyfill from 'fetch-ponyfill'
+const fetch = FetchPonyfill().fetch
 
 const storage = storageInit()
 
@@ -30,6 +33,8 @@ class QrcodeRestore extends React.Component {
 			password:'',
 			confirmPassword:'',
 			accountJsonSet:false,
+			paperWalletJson:'',
+			encryptedWalletJson:'',
 			headerText: 'add account',
 			ledgerVersion:'',
 			ledgerAddress:'',
@@ -45,14 +50,6 @@ class QrcodeRestore extends React.Component {
 		})
 	}
 
-	onImageDrop(file) {
-		this.setState({
-			uploadedFile: file,
-			redirect: false
-		});
-
-		this.handleImageUpload(file);
-	}
 
 	onChangeFile(event) {
 		event.stopPropagation();
@@ -83,14 +80,15 @@ class QrcodeRestore extends React.Component {
 		reader.readAsDataURL(file);
 	}
 	setImgAndEncryptedStore = (dataUrl, json, saveBackup) => {
-		storage.setItem('accountKeyStore', json);
 		let keystore = JSON.parse(json);
+		this.setState({
+			encryptedWalletJson:json,
+			ledgerAddress:keystore.pkey,
+			loading:false
+		});
 		let myCanvas = document.getElementById('accountImg');
 		let ctx = myCanvas.getContext('2d');
 		let img = new Image;
-		this.setState({
-			ledgerAddress:keystore.pkey
-		});
 		img.onload = function () {
 			myCanvas.height = img.height;
 			myCanvas.width = img.width;
@@ -112,7 +110,13 @@ class QrcodeRestore extends React.Component {
 			importAccountClicked: true
 		});
 		let encryptedKp = getNewKeyPair(this.state.password);
-		let jsonValue = JSON.stringify(encryptedKp);
+		let jsonValue = JSON.stringify(encryptedKp.encrypted);
+
+		this.setState({
+			paperWalletJson:JSON.stringify(encryptedKp.decrypted),
+			loading:false
+		})
+
 		QrCodeEncoder.toDataURL(jsonValue)
 		.then(url => {
 			this.setImgAndEncryptedStore(url, jsonValue, true);
@@ -165,6 +169,7 @@ class QrcodeRestore extends React.Component {
 	handleImportWallet = () => {
 		this.refs.fileUploader.click();
 		this.setState({
+			loading:true,
 			createAccountClicked: false,
 			useLedgerClicked:false,
 			importAccountClicked: true
@@ -177,24 +182,40 @@ class QrcodeRestore extends React.Component {
 		});
 	}
 	handleOk = () => {
-		if(this.state.ledgerVersion && this.state.ledgerVersion !== '')
-		{
+		if(this.state.ledgerVersion && this.state.ledgerVersion !== ''){
 			var keyStore = {
 				pkey:this.state.ledgerAddress,
 				useLedger:true,
 			};
 			storage.setItem('accountKeyStore', JSON.stringify(keyStore));
+		}else{
+			storage.setItem('accountKeyStore', this.state.encryptedWalletJson);
 		}
+		this.setState({
+			loading:true,
+			paperWalletJson:''
+		})
 
-		if(this.props && this.props.qrCodeUploaded)
-		{
-			this.props.qrCodeUploaded(storage.getItem('accountKeyStore'));
-		}
-		else{
-			this.setRedirect();
-		}
+		fetch('https://friendbot.kinexplorer.com/api/Create/' + this.state.ledgerAddress)
+		.then(rsp => rsp.json())
+		.then(rsp => {
+			const newState = {};
+			newState.loading = false;
+			newState.paperWalletJson = JSON.stringify(rsp);
+			if(rsp.success || rsp.message === 'Account already exists'){
+				if(this.props && this.props.qrCodeUploaded){
+					this.props.qrCodeUploaded(storage.getItem('accountKeyStore'));
+				}else{
+					this.setRedirect();
+				}
+			}
 
-
+			this.setState(newState);
+		})
+		.catch(err => {
+			console.error(`Failed to fetch price: [${err}]`)
+			console.error(`stack: [${err.stack}]`)
+		})
 	}
 	render() {
 
@@ -279,6 +300,8 @@ class QrcodeRestore extends React.Component {
 				<div className="panel panel-default" style={{marginBottom:0}}>
 				<div className="panel-heading">{this.state.headerText}</div>
 				<div className="panel-body" style={{textAlign: 'center'}}>
+
+				{this.state.paperWalletJson !== '' && <div><JSONPretty id="json-pretty" json={this.state.paperWalletJson} /></div>}
 					{body}
 				</div>
 					{this.state.importAccountClicked || this.state.createAccountClicked || this.state.useLedgerClicked ?
@@ -290,7 +313,8 @@ class QrcodeRestore extends React.Component {
 								useLedgerClicked: false,
 								accountJsonSet:false,
 								ledgerError:false,
-								loading:false
+								loading:false,
+								paperWalletJson:''
 							});
 						}}
 					        style={{fontSize:'10px'}}>
