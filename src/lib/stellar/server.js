@@ -65,7 +65,7 @@ class WrappedServer extends sdk.Server {
 			}))
 			// A memo allows you to add your own metadata to a transaction. It's
 			// optional and does not affect how Stellar treats the transaction.
-			.addMemo(StellarSdk.Memo.text('1-kin_explorer'))
+			.addMemo(StellarSdk.Memo.text('1-ejF5-'))
 			.build();
 			if(useLedger){
 				const transport = await Transport.create();
