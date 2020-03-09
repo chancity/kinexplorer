@@ -25,7 +25,7 @@ class LumensRatesContainer extends React.PureComponent {
 		.then(rsp => rsp.json())
 		.then(rspJson => {
 			const newState = {
-				change: rspJson.data.prices.percent_change,
+				change: rspJson.data.prices.latest_price.percent_change.day,
 				usd: rspJson.data.prices.latest,
 			}
 			storage.setItem('currentRate', rspJson.data.prices.latest);
