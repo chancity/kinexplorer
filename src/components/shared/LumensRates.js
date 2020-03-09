@@ -4,7 +4,7 @@ import FetchPonyfill from 'fetch-ponyfill'
 import {storageInit} from '../../lib/utils';
 const fetch = FetchPonyfill().fetch
 
-const FEED_URL = 'https://api.coinmarketcap.com/v1/ticker/kin/'
+const FEED_URL = 'https://www.coinbase.com/api/v2/assets/prices/238e025c-6b39-57ca-91d2-4ee7912cb518?base=USD'
 const UPDATE_INTERVAL = 5 * 60 * 1000
 const storage = storageInit()
 class LumensRatesContainer extends React.PureComponent {
@@ -24,12 +24,11 @@ class LumensRatesContainer extends React.PureComponent {
 		fetch(FEED_URL)
 		.then(rsp => rsp.json())
 		.then(rspJson => {
-			const lumens = rspJson[0]
 			const newState = {
-				change: lumens.percent_change_24h,
-				usd: lumens.price_usd,
+				change: rspJson.data.prices.percent_change.day,
+				usd: rspJson.data.prices.latest,
 			}
-			storage.setItem('currentRate', lumens.price_usd);
+			storage.setItem('currentRate', rspJson.data.prices.latest);
 			this.setState(newState)
 		})
 		.catch(err => {
