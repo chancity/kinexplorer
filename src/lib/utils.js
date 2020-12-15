@@ -60,7 +60,7 @@ const handleFetchDataFailure = id => e => {
   } else {
     errorURI = `/error/general/${id}`
   }
-  window.location.href = errorURI
+  //window.location.href = errorURI
 }
 
 const storageInit = () => {
